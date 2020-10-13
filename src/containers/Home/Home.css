@@ -1,0 +1,33 @@
+body{
+    background: linear-gradient(to bottom right, #0e9943, #7afaab) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.Home{
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.appTitle{
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-top: 100px;
+    font-size: 300%;
+}
+
+#appName{
+    font-size: 200%;
+}
+
+#logInBtn{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#logBtn{
+    color: #34c76c;
+}
