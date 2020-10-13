@@ -12,7 +12,7 @@ class Home extends Component {
           <h1 id="appName">Spotify-App</h1>
         </div>
         <div id="logInBtn">
-          <button type="button" className="btn btn-light"><a href={loginUrl} id="logBtn"> Login to Spotify </a></button>
+          <button type="button" className="btn btn-light"><a href={loginUrl} id="logBtn"> Login with Spotify </a></button>
         </div>
         
       </div>
