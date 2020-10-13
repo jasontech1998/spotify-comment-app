@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import ScrollToTop from '../hoc/ScrollToTop/ScrollToTop';
+import './SpotifyApp.css';
 import Home from './Home/Home';
 import Feed from './Feed/Feed';
 import {getToken} from '../spotify';
