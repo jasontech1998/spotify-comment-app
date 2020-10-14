@@ -1,7 +1,28 @@
 import React, {Component} from 'react';
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
+import EpisodesList from '../EpisodesList/episodesList';
+import './searchResults.css';
+import SpotifyWebApi from 'spotify-web-api-js';
+
+const spotify = new SpotifyWebApi();
 
 class SearchResults extends Component {
+  state = {
+    episodesResult: null
+  }
+
+  onClickShowHandler = (id) => {
+    spotify.setAccessToken(this.props.token);
+    spotify.getShowEpisodes(id, {limit: 8})
+      .then(episodes => {
+        // console.log(episodes.items)
+        this.setState({episodesResult: episodes.items})
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
   render () {
     let showResults = null;
     if (this.props.searchResults) {
@@ -10,13 +31,20 @@ class SearchResults extends Component {
          {this.props.searchResults.map((show) => {
           //  console.log(show)
            return (
-             <div key={show.id}>
+             <div
+                onClick={() => this.onClickShowHandler(show.id)} 
+                className="showWrapper" key={show.id}>
                <h3>Show Name: {show.name}</h3>
-               <img src={show.images[0].url}/>
+               <img src={show.images[2].url}/>
              </div>
            )
          })} 
         </Auxiliary>
+      )
+    }
+    if (this.state.episodesResult) {
+      showResults = (
+        <EpisodesList episodes={this.state.episodesResult}/>
       )
     }
     return (

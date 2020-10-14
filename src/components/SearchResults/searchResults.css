@@ -1,0 +1,5 @@
+.showWrapper {
+  border: 1px solid red;
+  cursor: pointer;
+  padding: 18px;
+}

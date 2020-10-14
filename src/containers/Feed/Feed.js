@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 import './Feed.css';
 import Navbar from '../../components/Navbar/Navbar';
-import Search from '../../components/Search/Search';
+
 import SearchResults from '../../components/SearchResults/searchResults';
+
 
 import SpotifyWebApi from 'spotify-web-api-js';
 
@@ -17,13 +18,15 @@ class Feed extends Component {
     // destructure object passed down from search input
     const {token, searchInput} = this.props.location.state;
     // if available, get data from spotify api
-    if (token, searchInput) {
+    if (token && searchInput) {
       spotify.setAccessToken(token);
       // search shows from user input and limit to 5
       spotify.searchShows(searchInput, {limit: 5})
         .then(data => {
           // console.log("search results", data.shows.items)
-          this.setState({searchResults: data.shows.items})
+          this.setState({
+            searchResults: data.shows.items,
+            token: token})
         })
         .catch(error => {
           console.log(error);
@@ -35,10 +38,7 @@ class Feed extends Component {
     return (
       <div className="Feed">
         <Navbar />
-        {/* <div id="searchBar">
-          <Search />
-        </div> */}
-        <SearchResults searchResults={this.state.searchResults}/>
+        <SearchResults searchResults={this.state.searchResults} token={this.state.token}/>
       </div>
     );
   }
