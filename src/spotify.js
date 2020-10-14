@@ -9,7 +9,8 @@ const client_id = process.env.REACT_APP_SPOTIFY_ID; // Your client id
 const scopes = [
   "user-read-private",
   "user-read-email",
-  "user-read-playback-state"
+  "user-read-playback-state",
+  "streaming"
 ];
 
 export const getToken = () => {

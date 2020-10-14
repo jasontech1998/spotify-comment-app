@@ -12,7 +12,6 @@ class SearchResults extends Component {
   }
 
   onClickShowHandler = (id) => {
-    spotify.setAccessToken(this.props.token);
     spotify.getShowEpisodes(id, {limit: 8})
       .then(episodes => {
         // console.log(episodes.items)
@@ -24,6 +23,7 @@ class SearchResults extends Component {
   }
 
   render () {
+ 
     let showResults = null;
     if (this.props.searchResults) {
       showResults = (
