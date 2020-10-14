@@ -8,7 +8,9 @@ import Feed from './Feed/Feed';
 import {getToken} from '../spotify';
 
 class SpotifyApp extends Component {
-
+  state = {
+    token: null
+  }
   componentDidMount = () => {
     // if the url is empty, that means the getToken function hasn't been called yet (user not logged in)
     if (window.location.hash !== "") {
@@ -16,8 +18,7 @@ class SpotifyApp extends Component {
       const hash = getToken();
       window.location.hash = "";
       const token = hash.access_token;
-  
-      console.log("token: ", token)
+      this.setState({token: token})
       // don't run the above condition if user is not logged in
     } else {
       console.log("user is not logged in")
@@ -27,7 +28,9 @@ class SpotifyApp extends Component {
     return (
       <ScrollToTop>
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact render={() => (
+            <Home token={this.state.token}/>
+          )}/>
           <Route path="/feed" exact component={Feed} />
           <Route render={() => <center><h1 id="error">404 Not Found</h1></center>} />
         </Switch>
