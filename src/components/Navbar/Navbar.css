@@ -1,3 +1,17 @@
+#navbarName{
+   font-family: 'Noto Sans JP', sans-serif;
+   background: -webkit-linear-gradient(#015211, #abffbb);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+#logo{
+   background: -webkit-linear-gradient(#015211, #abffbb);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
 #logoutBtn{
-   margin-left: 5px;
+   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+   font-family: 'Noto Sans JP', sans-serif;
 }

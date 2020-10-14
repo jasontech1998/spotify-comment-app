@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './Home.css';
 import {loginUrl} from '../../spotify';
-import Search from '../Search/search';
+import Search from '../../components/Search/Search';
 
 
 class Home extends Component {

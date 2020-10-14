@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
+import { Redirect } from 'react-router-dom';
+import './Search.css';
 
 const spotify = new SpotifyWebApi();
 
 class Search extends Component {
+
   render () {
     if (this.props.token) {
       // gives spotify api user's access token
@@ -20,8 +23,8 @@ class Search extends Component {
       );
     }
     return (
-      <div className="container" id="searchBar">
-        <form className="example" action="...">
+      <div className="container">
+        <form className="example">
           <input type="text" placeholder="Search.." name="search"></input>
           <button type="submit"><i className="fa fa-search"></i></button>
         </form>
