@@ -38,7 +38,7 @@ class Feed extends Component {
     return (
       <div className="Feed">
         <Navbar />
-        <SearchResults searchResults={this.state.searchResults} />
+        <SearchResults searchResults={this.state.searchResults} token={this.state.token} />
       </div>
     );
   }

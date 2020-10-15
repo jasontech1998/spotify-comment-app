@@ -44,7 +44,7 @@ class SearchResults extends Component {
     }
     if (this.state.episodesResult) {
       showResults = (
-        <EpisodesList episodes={this.state.episodesResult}/>
+        <EpisodesList episodes={this.state.episodesResult} token={this.props.token}/>
       )
     }
     return (

@@ -44,7 +44,7 @@ class EpisodesList extends Component {
     // if episodeData
     if (this.state.episodeData) {
       showEpisodes = (
-        <Episode data={this.state.episodeData}/>
+        <Episode data={this.state.episodeData} token={this.props.token}/>
       )
     }
 
