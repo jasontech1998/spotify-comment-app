@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
-import EpisodesList from '../EpisodesList/episodesList';
+import EpisodesList from '../EpisodesList/EpisodesList'
 import './searchResults.css';
 import SpotifyWebApi from 'spotify-web-api-js';
 

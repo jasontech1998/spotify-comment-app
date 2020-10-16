@@ -1,0 +1,13 @@
+#playerButton{
+    background: none;
+    border: none;
+}
+
+#pausePlay{
+    color: white;
+}
+
+#player{
+    display: flex;
+    justify-content: left;
+}

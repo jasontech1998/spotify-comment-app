@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
-import './episodesList.css';
+import './EpisodesList.css';
 import SpotifyWebApi from 'spotify-web-api-js';
-import Episode from '../Episode/episode';
+import Episode from '../Episode/Episode';
 
 const spotify = new SpotifyWebApi();
 

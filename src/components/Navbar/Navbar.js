@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './Navbar.css';
-import { NavLink } from 'react-router-dom';
+import Search from '../Search/Search';
 
 class Navbar extends Component {
 
@@ -18,7 +18,7 @@ class Navbar extends Component {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <NavLink to='/'><button type="button" className="btn btn-success" id="logoutBtn">Logout</button></NavLink>
+                            <Search />
                         </li>
                         </ul>
                     </div>

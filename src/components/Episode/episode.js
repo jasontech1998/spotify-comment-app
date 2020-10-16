@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
+import './Episode.css';
+
+import AudioWave from '../AudioWave/AudioWave';
 
 
 class Episode extends Component {
 
   state = {
-    isConnected: false
+    isConnected: false,
+    paused: false
   }
 
   setUpPlayer = () => {
@@ -56,6 +60,18 @@ class Episode extends Component {
       });
     });
   }
+
+  playOrPauseHandler = () => {
+    if(this.state.paused){
+      //Play the podcast
+      // PUT https://api.spotify.com/v1/me/player/play
+      this.setState({paused: false});
+    } else {
+      //Pause the podcast
+      // PUT https://api.spotify.com/v1/me/player/pause
+      this.setState({paused: true});
+    }
+  }
   
 
   render() {
@@ -65,12 +81,24 @@ class Episode extends Component {
           
           this.setUpPlayer();
         }
+    let playOrPause = (
+      <button id="playerButton" onClick={this.playOrPauseHandler}><i class="fas fa-pause-circle fa-4x" id="pausePlay"></i></button>
+    );
+    if(this.state.paused) {
+      playOrPause = (
+        <button id="playerButton" onClick={this.playOrPauseHandler}><i class="fas fa-play-circle fa-4x" id="pausePlay"></i></button>
+      );
+    }
     return (
       <div>
         <h1>Episode Name: {episode.name}</h1>
-        <img 
-          src={episode.images[0].url} 
-          style={{width: "100px", height: "100px"}}/>
+        <div id="player">
+          <img 
+            src={episode.images[0].url} 
+            style={{width: "100px", height: "100px"}}/>
+          {playOrPause}
+        </div>
+        
         <p>Description: {episode.description}</p>
         <p>Release Date: {episode.release_date}</p>
         
