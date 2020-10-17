@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
-import EpisodesList from '../../components/EpisodesList/EpisodesList';
+import EpisodesList from '../../components/EpisodesList/episodesList';
 import './searchResults.css';
 import Navbar from '../../components/Navbar/Navbar';
 import SpotifyWebApi from 'spotify-web-api-js';
