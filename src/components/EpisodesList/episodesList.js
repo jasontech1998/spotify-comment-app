@@ -3,6 +3,7 @@ import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import './EpisodesList.css';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Episode from '../Episode/episode';
+import Navbar from '../../components/Navbar/Navbar';
 
 const spotify = new SpotifyWebApi();
 
@@ -23,7 +24,10 @@ class EpisodesList extends Component {
 
   render () {
     let showEpisodes = null;
-  
+    let showNavBar = null;
+    if (!this.state.episodeData) {
+      showNavBar = <Navbar token={this.props.token} />
+    }
     if (this.props.episodes) {
       showEpisodes = (
         <Auxiliary>
@@ -50,6 +54,7 @@ class EpisodesList extends Component {
 
     return (
       <div>
+        {showNavBar}
         {showEpisodes}
       </div>
     )

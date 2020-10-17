@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import './Episode.css';
-
-import AudioWave from '../AudioWave/AudioWave';
+import { withRouter } from 'react-router-dom';
 
 
 class Episode extends Component {
 
   state = {
     // paused: true
+    searchInput: null
   }
 
   onStateChanged(state) {
@@ -53,6 +53,7 @@ class Episode extends Component {
           console.log('the web playback sdk successfully connected')
         }
       });
+      
     }
   }
 
@@ -110,6 +111,22 @@ class Episode extends Component {
     this.player.togglePlay();
   }
 
+  onSearchHandler = (e) => {
+    this.setState({searchInput: e.target.value})
+  }
+  // when user searches something in episode
+  onSubmitSearchHandler = (e) => {
+    e.preventDefault();
+    // pause the current playback and push to searchResults the new search
+    this.onPauseClick();
+    this.props.history.push({
+      pathname: "/searchResults",
+      state: {
+          searchInput: this.state.searchInput,
+          token: this.props.token}
+    });
+  }
+
   render() {
     const episode = this.props.data;
     if (this.props.token && !this.state.deviceId) {
@@ -133,6 +150,15 @@ class Episode extends Component {
     }
     return (
       <div>
+        <div className="container">
+        <form className="example" 
+          onSubmit={(e) => this.onSubmitSearchHandler(e)}>
+          <input 
+            onChange={(e) => this.onSearchHandler(e)}
+            type="text" placeholder="Search.." name="search"></input>
+            <button type="submit"><i className="fa fa-search"></i></button>
+          </form>
+        </div>
         <h1>Episode Name: {episode.name}</h1>
         <div id="player">
           <img 
@@ -149,4 +175,4 @@ class Episode extends Component {
   }
 }
 
-export default Episode;
+export default withRouter(Episode);

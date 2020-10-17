@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import ScrollToTop from '../hoc/ScrollToTop/ScrollToTop';
 import './SpotifyApp.css';
 import Home from './Home/Home';
-import Feed from './Feed/Feed';
+import SearchResults from './SearchResults/searchResults';
 import {getToken} from '../spotify';
 
 class SpotifyApp extends Component {
@@ -31,7 +31,7 @@ class SpotifyApp extends Component {
           <Route path="/" exact render={() => (
             <Home token={this.state.token}/>
           )}/>
-          <Route path="/feed" exact component={Feed} />
+          <Route path="/searchResults" exact component={SearchResults} />
           <Route render={() => <center><h1 id="error">404 Not Found</h1></center>} />
         </Switch>
       </ScrollToTop>

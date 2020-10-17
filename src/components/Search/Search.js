@@ -15,12 +15,11 @@ class Search extends Component {
   onSubmitSearchHandler = (e) => {
     e.preventDefault();
     this.props.history.push({
-      pathname: "/feed",
+      pathname: "/searchResults",
       state: {
           searchInput: this.state.searchInput,
           token: this.props.token}
     });
-    
   }
 
   render () {
