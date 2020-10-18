@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
-
 import './searchResults.css';
 import Navbar from '../../components/Navbar/Navbar';
 import { withRouter } from 'react-router-dom';
