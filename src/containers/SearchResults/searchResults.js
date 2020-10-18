@@ -2,19 +2,20 @@ import React, {Component} from 'react';
 
 
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
-import EpisodesList from '../../components/EpisodesList/EpisodesList';
+
 import './searchResults.css';
 import Navbar from '../../components/Navbar/Navbar';
-import SpotifyWebApi from 'spotify-web-api-js';
+import { withRouter } from 'react-router-dom';
 
+import SpotifyWebApi from 'spotify-web-api-js';
 const spotify = new SpotifyWebApi();
 
 class SearchResults extends Component {
   state = {
     episodesResult: null
   }
+
   componentDidMount = () => {
-    
     // when searchResult first mounts, use the search input passed down from Search component (from home component) and search up the result of shows
     // destructure object passed down from search input
     const {token, searchInput} = this.props.location.state;
@@ -94,9 +95,15 @@ class SearchResults extends Component {
     }
     // if there is episodesResult in state, the user has clicked on a show, so display the result of the episodes instead of searchResults (it will display a list of episodes)
     if (this.state.episodesResult) {
-      searchResults = (
-        <EpisodesList episodes={this.state.episodesResult} token={this.state.token}/>
-      )
+      this.props.history.push({
+        pathname: "/episodesList",
+        state: {
+            episodesResult: this.state.episodesResult,
+            token: this.state.token}
+      });
+      // searchResults = (
+      //   <EpisodesList episodes={this.state.episodesResult} token={this.state.token}/>
+      // )
     }
 
     if (this.state.searchResults) {
@@ -105,10 +112,11 @@ class SearchResults extends Component {
     return (
       <div>
         {showNavBar}
+        <h1>Search Results</h1>
         {searchResults}
       </div>
     )
   }
 }
 
-export default SearchResults;
+export default withRouter(SearchResults);

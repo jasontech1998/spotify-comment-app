@@ -10,7 +10,13 @@ class Episode extends Component {
     searchInput: null
   }
 
+  componentWillUnmount = () => {
+    console.log('unmounted episode')
+    this.onPauseClick();
+  }
+
   onStateChanged(state) {
+    console.log(state);
     if (state !== null) {
       // console.log(state);
       const {current_track: currentTrack} = state.track_window;
@@ -150,14 +156,15 @@ class Episode extends Component {
     }
     return (
       <div>
+        {/* seach form for episode */}
         <div className="container">
-        <form className="example" 
-          onSubmit={(e) => this.onSubmitSearchHandler(e)}>
-          <input 
-            onChange={(e) => this.onSearchHandler(e)}
-            type="text" placeholder="Search.." name="search"></input>
-            <button type="submit"><i className="fa fa-search"></i></button>
-          </form>
+          <form className="example" 
+            onSubmit={(e) => this.onSubmitSearchHandler(e)}>
+            <input 
+              onChange={(e) => this.onSearchHandler(e)}
+              type="text" placeholder="Search.." name="search"></input>
+              <button type="submit"><i className="fa fa-search"></i></button>
+            </form>
         </div>
         <h1>Episode Name: {episode.name}</h1>
         <div id="player">

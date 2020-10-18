@@ -5,6 +5,7 @@ import ScrollToTop from '../hoc/ScrollToTop/ScrollToTop';
 import './SpotifyApp.css';
 import Home from './Home/Home';
 import SearchResults from './SearchResults/searchResults';
+import EpisodesList from './EpisodesList/EpisodesList';
 import {getToken} from '../spotify';
 
 class SpotifyApp extends Component {
@@ -32,6 +33,7 @@ class SpotifyApp extends Component {
             <Home token={this.state.token}/>
           )}/>
           <Route path="/searchResults" exact component={SearchResults} />
+          <Route path="/episodesList" exact component={EpisodesList} />
           <Route render={() => <center><h1 id="error">404 Not Found</h1></center>} />
         </Switch>
       </ScrollToTop>

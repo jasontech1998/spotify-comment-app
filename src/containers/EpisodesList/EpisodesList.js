@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import './EpisodesList.css';
 import SpotifyWebApi from 'spotify-web-api-js';
-import Episode from '../Episode/episode';
+import Episode from '../../components/Episode/episode';
 import Navbar from '../../components/Navbar/Navbar';
 
 const spotify = new SpotifyWebApi();
@@ -11,6 +11,11 @@ class EpisodesList extends Component {
   state = {
     episodeData: null
   }
+
+  // componentDidMount = () => {
+  //   const {token, episodesResult} = this.props.location.state;
+  //   console.log(episodesResult);
+  // }
 
   onClickEpisodeHandler = (id) => {
     spotify.getEpisode(id)
@@ -28,10 +33,10 @@ class EpisodesList extends Component {
     if (!this.state.episodeData) {
       showNavBar = <Navbar token={this.props.token} />
     }
-    if (this.props.episodes) {
+    if (this.props.location.state.episodesResult) {
       showEpisodes = (
         <Auxiliary>
-          {this.props.episodes.map((episode) => {
+          {this.props.location.state.episodesResult.map((episode) => {
             return (
               <div
                 onClick={() => this.onClickEpisodeHandler(episode.id)} 
@@ -48,12 +53,13 @@ class EpisodesList extends Component {
     // if episodeData
     if (this.state.episodeData) {
       showEpisodes = (
-        <Episode data={this.state.episodeData} token={this.props.token}/>
+        <Episode data={this.state.episodeData} token={this.props.location.state.token}/>
       )
     }
 
     return (
       <div>
+        <h1>Episodes List</h1>
         {showNavBar}
         {showEpisodes}
       </div>
