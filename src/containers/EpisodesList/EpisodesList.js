@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
-import './episodesList.css';
+import './EpisodesList.css';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Episode from '../../components/Episode/episode';
 import Navbar from '../../components/Navbar/Navbar';
@@ -59,8 +59,8 @@ class EpisodesList extends Component {
 
     return (
       <div>
-        <h1>Episodes List</h1>
         {showNavBar}
+        <h1>Episodes List</h1>
         {showEpisodes}
       </div>
     )
