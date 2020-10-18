@@ -12,11 +12,6 @@ class EpisodesList extends Component {
     episodeData: null
   }
 
-  // componentDidMount = () => {
-  //   const {token, episodesResult} = this.props.location.state;
-  //   console.log(episodesResult);
-  // }
-
   onClickEpisodeHandler = (id) => {
     spotify.getEpisode(id)
       .then(episode => {
@@ -31,7 +26,7 @@ class EpisodesList extends Component {
     let showEpisodes = null;
     let showNavBar = null;
     if (!this.state.episodeData) {
-      showNavBar = <Navbar token={this.props.token} />
+      showNavBar = <Navbar token={this.props.location.state.token} />
     }
     if (this.props.location.state.episodesResult) {
       showEpisodes = (

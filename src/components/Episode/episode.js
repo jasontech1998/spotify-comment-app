@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 class Episode extends Component {
 
   state = {
-    // paused: true
     searchInput: null
   }
 
@@ -16,7 +15,6 @@ class Episode extends Component {
   }
 
   onStateChanged(state) {
-    console.log(state);
     if (state !== null) {
       // console.log(state);
       const {current_track: currentTrack} = state.track_window;
@@ -40,6 +38,7 @@ class Episode extends Component {
   }
 
   setUpPlayer = () => {
+    console.log(window.Spotify);
     // if the Spotify SDK has loaded
     if (window.Spotify) {
       const token = this.props.token;
