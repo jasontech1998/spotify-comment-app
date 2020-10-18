@@ -1,9 +1,14 @@
 body{
-    background: linear-gradient(to bottom right, #015211, #abffbb) no-repeat center center fixed; 
+    background: linear-gradient(to bottom right, #2e2e2e, #000000) no-repeat center center fixed; 
+    /* background-color: #2d3436;
+    background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%); */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
 }
 
 .Home{
@@ -41,4 +46,13 @@ body{
 
 #logBtn{
     color: #34c76c;
+}
+
+h1, h3 {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+span, p {
+    color: #FFFFFF;
 }

@@ -14,6 +14,7 @@ class Search extends Component {
 
   onSubmitSearchHandler = (e) => {
     e.preventDefault();
+    this.setState({searchInput: ""});
     this.props.history.push({
       pathname: "/searchResults",
       state: {
@@ -29,7 +30,7 @@ class Search extends Component {
           onSubmit={(e) => this.onSubmitSearchHandler(e)}>
           <input 
             onChange={(e) => this.onSearchHandler(e)}
-            type="text" placeholder="Search.." name="search"></input>
+            type="text" placeholder="Search.." name="search" value={this.state.searchInput}></input>
           <button type="submit"><i className="fa fa-search"></i></button>
         </form>
       </div>

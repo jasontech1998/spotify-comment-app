@@ -46,7 +46,7 @@ class SearchResults extends Component {
       if (token && searchInput) {
         spotify.setAccessToken(token);
         // search shows from user input and limit to 5
-        spotify.searchShows(searchInput, {limit: 5})
+        spotify.searchShows(searchInput, {limit: 6})
           .then(data => {
             // since this is triggered from navbar search, remove previous episodesResult state so only the searchResults are rendered (this makes it so if the user is on EpisodesList or Episodes, it removes that data so searchResults will only render)
             this.setState({
@@ -91,12 +91,23 @@ class SearchResults extends Component {
       searchResults = (
         <Auxiliary>
          {this.state.searchResults.map((show) => {
+           console.log(show)
            return (
              <div
                 onClick={() => this.onClickShowHandler(show.id)} 
                 className="showWrapper" key={show.id}>
-               <h3>Show Name: {show.name}</h3>
-               <img src={show.images[2].url}/>
+               <div className="imageWrapper">
+                <img src={show.images[2].url} alt="showPic"/>
+               </div>
+               <div class="showTitleContainer">
+                <div className="showTitleWrapper">
+                  <h3 className="showTitle">{show.name}</h3>
+                  <span className="publishedTitle">Hosted by {show.publisher}</span>
+                </div>
+                <div className="chevronIcon">
+                  <i className="fas fa-chevron-right"></i>
+                </div>
+               </div>
              </div>
            )
          })} 
@@ -111,8 +122,12 @@ class SearchResults extends Component {
     return (
       <div>
         {showNavBar}
-        <h1>Search Results</h1>
-        {searchResults}
+        <div className="searchResultsContainer">
+          <h1 className="searchResultsTitle">Search Results</h1>
+          <div className="searchResultsGrid">
+            {searchResults}
+          </div>
+        </div>
       </div>
     )
   }
