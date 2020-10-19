@@ -37,8 +37,6 @@ class SearchResults extends Component {
   }
 
   componentDidUpdate = (prevProps, nextProps) => {
-    console.log(prevProps.history.location.state)
-    console.log(this.state)
     // if the component updated due to a new search, use the new search input passed down from the search component (from navbar) and search up the result of shows
     if (nextProps === this.state) {
       const {token, searchInput} = this.props.location.state;
@@ -91,7 +89,6 @@ class SearchResults extends Component {
       searchResults = (
         <Auxiliary>
          {this.state.searchResults.map((show) => {
-           console.log(show)
            return (
              <div
                 onClick={() => this.onClickShowHandler(show.id)} 
@@ -99,7 +96,7 @@ class SearchResults extends Component {
                <div className="imageWrapper">
                 <img src={show.images[2].url} alt="showPic"/>
                </div>
-               <div class="showTitleContainer">
+               <div className="showTitleContainer">
                 <div className="showTitleWrapper">
                   <h3 className="showTitle">{show.name}</h3>
                   <span className="publishedTitle">Hosted by {show.publisher}</span>

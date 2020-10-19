@@ -8,18 +8,19 @@ class Episode extends Component {
   state = {
     searchInput: null
   }
-
+  // when component unmounts, pause the podcast and stop checking current playback status by clearing the interval
   componentWillUnmount = () => {
     console.log('unmounted episode')
     this.onPauseClick();
+    clearInterval(this.interval);
   }
 
+  // This is triggered everytime a user presses play or pause
   onStateChanged(state) {
     if (state !== null) {
-      // console.log(state);
       const {current_track: currentTrack} = state.track_window;
       const position = state.position;
-      const timestamp = state.timestamp;
+      const duration = state.duration;
       const trackName = currentTrack.name;
       const albumName = currentTrack.album.name;
       const artistName = currentTrack.artists
@@ -28,7 +29,7 @@ class Episode extends Component {
       const playing = !state.paused;
       this.setState({
         position,
-        timestamp,
+        duration,
         trackName,
         albumName,
         artistName,
@@ -38,7 +39,6 @@ class Episode extends Component {
   }
 
   setUpPlayer = () => {
-    console.log(window.Spotify);
     // if the Spotify SDK has loaded
     if (window.Spotify) {
       const token = this.props.token;
@@ -77,7 +77,7 @@ class Episode extends Component {
       
     });
   }
-
+  // This will connect spotify to web app and play current episode
   transferPlaybackHere() {
     const { deviceId } = this.state;
     const uri = this.props.data.uri;
@@ -105,6 +105,31 @@ class Episode extends Component {
       playerInstance: this.player,
       spotify_uri: uri,
     });
+    // after the episode starts playing, check current state of episode every second for real time position updates
+    setInterval(() => this.player.getCurrentState().then(state => {
+      if (state) {
+        const {current_track: currentTrack} = state.track_window;
+        const position = state.position;
+        const duration = state.duration;
+        const trackName = currentTrack.name;
+        const albumName = currentTrack.album.name;
+        const artistName = currentTrack.artists
+          .map(artist => artist.name)
+          .join(", ");
+        const playing = !state.paused;
+        // set the real time updates into state
+        this.setState({
+          position,
+          duration,
+          trackName,
+          albumName,
+          artistName,
+          playing
+        });
+      } else {
+        console.log('error')
+      }
+    }), 1000);
     console.log('transfered playback here')
   }
 
@@ -119,11 +144,11 @@ class Episode extends Component {
   onSearchHandler = (e) => {
     this.setState({searchInput: e.target.value})
   }
+
   // when user searches something in episode
   onSubmitSearchHandler = (e) => {
     e.preventDefault();
-    // pause the current playback and push to searchResults the new search
-    this.onPauseClick();
+    // direct to /searchResults (the component will unmount and pause the playing episode)
     this.props.history.push({
       pathname: "/searchResults",
       state: {
@@ -132,8 +157,16 @@ class Episode extends Component {
     });
   }
 
+  // Converts millisecond to minutes
+  millisecondsToMinutesConverter = (millis) => {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+  }
+
   render() {
     const episode = this.props.data;
+    // first set up player if not set up yet
     if (this.props.token && !this.state.deviceId) {
       console.log("about to setup player")
       this.setUpPlayer();
@@ -146,12 +179,20 @@ class Episode extends Component {
       </button>
     );
     if(this.state.playing) {
-      
       playOrPause = (
         <button id="playerButton" onClick={this.onPauseClick}>
           <i className="fas fa-pause-circle fa-4x" id="pausePlay"></i>
         </button>
       );
+    }
+
+    // get track time in minutes of podcast
+    let showTrackTime = null;
+    if (this.state.position && this.state.duration) {
+      // convert ms integer to minutes
+      let currentTime = this.millisecondsToMinutesConverter(this.state.position);
+      let fullTime = this.millisecondsToMinutesConverter(this.state.duration);
+      showTrackTime = <span>{currentTime} : {fullTime}</span>
     }
     return (
       <div>
@@ -172,10 +213,11 @@ class Episode extends Component {
             style={{width: "100px", height: "100px"}}/>
           {playOrPause}
         </div>
-        
         <p>Description: {episode.description}</p>
         <p>Release Date: {episode.release_date}</p>
-        
+        {/* progress bar testing */}
+        <progress value={this.state.position} max={this.state.duration} />
+        {showTrackTime}
       </div>
     )
   }
