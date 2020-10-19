@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Episode.css';
 import { withRouter } from 'react-router-dom';
+import AddComment from '../AddComment/AddComment';
 
 
 class Episode extends Component {
@@ -218,6 +219,7 @@ class Episode extends Component {
         {/* progress bar testing */}
         <progress value={this.state.position} max={this.state.duration} />
         {showTrackTime}
+        <AddComment />
       </div>
     )
   }

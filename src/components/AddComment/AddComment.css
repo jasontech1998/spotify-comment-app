@@ -1,0 +1,40 @@
+.AddComment{
+    background-color: #303030;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    margin-top: 50px;
+    border-radius: 10px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#commentHeader{
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#commentTime{
+    display: flex;
+    justify-content: left;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ruler{
+    border-color: white;
+    width: 95%;
+}
+
+#timeChoice{
+    margin-right: 10px;
+}
+
+#addCommentBtn{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #34c76c;
+    font-family: 'Noto Sans JP', sans-serif;
+}
