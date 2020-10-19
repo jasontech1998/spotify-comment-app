@@ -219,7 +219,7 @@ class Episode extends Component {
         {/* progress bar testing */}
         <progress value={this.state.position} max={this.state.duration} />
         {showTrackTime}
-        <AddComment />
+        <AddComment time={this.state.position} episodeId={this.props.data.id}/>
       </div>
     )
   }
