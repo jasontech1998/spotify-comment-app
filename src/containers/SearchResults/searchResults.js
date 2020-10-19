@@ -64,17 +64,20 @@ class SearchResults extends Component {
         pathname: "/episodesList",
         state: {
             episodesResult: this.state.episodesResult,
+            selectedShow: this.state.selectedShow,
             token: this.state.token}
       });
     }
   }
 
   // When a user clicks on a show from search results, get the data of the episodes in the show and store it in state
-  onClickShowHandler = (id) => {
-    spotify.getShowEpisodes(id, {limit: 8})
+  onClickShowHandler = (show) => {
+    console.log(show)
+    spotify.getShowEpisodes(show.id, {limit: 8})
       .then(episodes => {
         this.setState({
           searchResults: null,
+          selectedShow: show,
           episodesResult: episodes.items})
       })
       .catch(error => {
@@ -84,14 +87,13 @@ class SearchResults extends Component {
 
   render () {
     let searchResults = null;
-    let showNavBar = null;
     if (this.state.searchResults) {
       searchResults = (
         <Auxiliary>
          {this.state.searchResults.map((show) => {
            return (
              <div
-                onClick={() => this.onClickShowHandler(show.id)} 
+                onClick={() => this.onClickShowHandler(show)} 
                 className="showWrapper" key={show.id}>
                <div className="imageWrapper">
                 <img src={show.images[2].url} alt="showPic"/>
@@ -113,12 +115,9 @@ class SearchResults extends Component {
     }
     
 
-    if (this.state.searchResults) {
-      showNavBar = <Navbar token={this.state.token}/>
-    }
     return (
       <div>
-        {showNavBar}
+        <Navbar token={this.state.token}/>
         <div className="searchResultsContainer">
           <h1 className="searchResultsTitle">Search Results</h1>
           <div className="searchResultsGrid">

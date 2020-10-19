@@ -45,7 +45,7 @@ body{
 }
 
 #logBtn{
-    color: #34c76c;
+    color: #FFFFFF;
 }
 
 h1, h3 {
@@ -56,3 +56,12 @@ h1, h3 {
 span, p {
     color: #FFFFFF;
 }
+
+.btn {
+    background-color: #34c76c;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+

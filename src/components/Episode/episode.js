@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './Episode.css';
 import { withRouter } from 'react-router-dom';
+
+
 import AddComment from '../AddComment/AddComment';
 import CommentList from '../CommentList/CommentList';
 
@@ -143,27 +145,20 @@ class Episode extends Component {
     this.player.togglePlay();
   }
 
-  onSearchHandler = (e) => {
-    this.setState({searchInput: e.target.value})
-  }
-
-  // when user searches something in episode
-  onSubmitSearchHandler = (e) => {
-    e.preventDefault();
-    // direct to /searchResults (the component will unmount and pause the playing episode)
-    this.props.history.push({
-      pathname: "/searchResults",
-      state: {
-          searchInput: this.state.searchInput,
-          token: this.props.token}
-    });
-  }
-
   // Converts millisecond to minutes
   millisecondsToMinutesConverter = (millis) => {
     var minutes = Math.floor(millis / 60000);
     var seconds = ((millis % 60000) / 1000).toFixed(0);
     return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+  }
+
+  // Drag handler for input range
+  dragHandler = (e) => {
+    this.setState({position: e.target.value})
+    this.player.seek(e.target.value).then(() => {
+      console.log('changed position')
+    })
+    // add spotify seek position here
   }
 
   render() {
@@ -198,16 +193,6 @@ class Episode extends Component {
     }
     return (
       <div>
-        {/* seach form for episode */}
-        <div className="container">
-          <form className="example" 
-            onSubmit={(e) => this.onSubmitSearchHandler(e)}>
-            <input 
-              onChange={(e) => this.onSearchHandler(e)}
-              type="text" placeholder="Search.." name="search"></input>
-              <button type="submit"><i className="fa fa-search"></i></button>
-            </form>
-        </div>
         <h1>Episode Name: {episode.name}</h1>
         <div id="player">
           <img 
@@ -218,7 +203,9 @@ class Episode extends Component {
         <p>Description: {episode.description}</p>
         <p>Release Date: {episode.release_date}</p>
         {/* progress bar testing */}
-        <progress value={this.state.position} max={this.state.duration} />
+        <input 
+          onChange={(e) => this.dragHandler(e)}
+          type="range" value={this.state.position || ""} max={this.state.duration} />
         {showTrackTime}
         <AddComment time={this.state.position} episodeId={this.props.data.id}/>
         <CommentList episodeId={this.props.data.id}/>

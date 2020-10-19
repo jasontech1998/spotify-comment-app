@@ -10,7 +10,7 @@ class Home extends Component {
     
     let signOrSearch = (
       <div id="logInBtn">
-        <button type="button" className="btn btn-light"><a href={loginUrl} id="logBtn"> Login with Spotify </a></button>
+        <button type="button" className="btn"><a href={loginUrl} id="logBtn">Login with Spotify </a></button>
       </div>
     );
     // if token is not null, render search bar

@@ -16,7 +16,7 @@ class Navbar extends Component {
     return (
         <div className="Navbar"> 
             <div className="Navbar"> 
-                <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light" id="navbar">
+                <nav className="navbar sticky-top navbar-expand-lg" id="navbar">
                     <div className="appLogo" onClick={() => this.onClickLogo()}>
                         <i className="fab fa-spotify" id="logo"></i>
                         <span className="navbar-brand mb-0 h1" id="navbarName">PodSpot</span>

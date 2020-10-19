@@ -24,14 +24,22 @@ class Search extends Component {
   }
 
   render () {
+    let placeholderValue = "What's your favorite podcast?"
+    console
+    if (this.props.history.location.pathname === "/searchResults" || this.props.history.location.pathname === "/episodesList") {
+      placeholderValue = "Search";
+    }
     return (
       <div className="container">
-        <form className="example" 
+        <form className="search" 
           onSubmit={(e) => this.onSubmitSearchHandler(e)}>
+          <button type="submit"><i className="fa fa-search"></i></button>
           <input 
             onChange={(e) => this.onSearchHandler(e)}
-            type="text" placeholder="Search.." name="search" value={this.state.searchInput}></input>
-          <button type="submit"><i className="fa fa-search"></i></button>
+            type="text" 
+            name="search"
+            placeholder={placeholderValue}
+            value={this.state.searchInput}></input>
         </form>
       </div>
     )

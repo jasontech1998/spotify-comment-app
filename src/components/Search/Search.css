@@ -3,40 +3,70 @@
 * {
     box-sizing: border-box;
   }
+
+  form.search {
+    display: flex;
+    justify-content: center;
+  }
   
   /* Style the search field */
-  form.example input[type=text] {
+  form.search input[type=text] {
     padding: 10px;
     font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 80%;
-    background: #f1f1f1;
-    border-radius: 10px 0px 0px 10px;
+    border: 1px solid #303030;
+    border-left-color: #303030;
+    border-radius: 0.5rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 53%;
+    background: #303030;
+    color: grey;
   }
+
+  form.search input[type=text]:focus {
+    background-color: #303030;
+    outline: none;
+  }
+
   
   /* Style the submit button */
-  form.example button {
-    float: left;
-    width: 20%;
+  form.search button {
     padding: 10px;
-    background: white;
-    color: #34c76c;
+    background: #303030;
+    color: grey;
     font-size: 17px;
-    border: 1px solid grey;
-    border-left: none; /* Prevent double borders */
+    border: 1px solid #303030;
+    border-radius: 0.5rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     cursor: pointer;
-    border-radius: 0px 10px 10px 0px;
   }
-  
-  form.example button:hover {
-    background: #04801d;
-    color: white;
-  }
+
   
   /* Clear floats */
-  form.example::after {
+  form.search::after {
     content: "";
     clear: both;
     display: table;
   }
+
+/* Change the white to any color ;) */
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: grey;
+  caret-color: grey;
+  -webkit-box-shadow: 0 0 0px 1000px #303030 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill::first-line {
+  font-size: 17px;
+}
