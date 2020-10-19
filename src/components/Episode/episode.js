@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './Episode.css';
 import { withRouter } from 'react-router-dom';
 import AddComment from '../AddComment/AddComment';
+import CommentList from '../CommentList/CommentList';
 
 
 class Episode extends Component {
@@ -220,6 +221,7 @@ class Episode extends Component {
         <progress value={this.state.position} max={this.state.duration} />
         {showTrackTime}
         <AddComment time={this.state.position} episodeId={this.props.data.id}/>
+        <CommentList episodeId={this.props.data.id}/>
       </div>
     )
   }

@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "comments": {
+      ".read": "true",
+      ".write": "true",
+      ".indexOn": [
+        "episodeId"
+      ]
+    }
+  }
+}

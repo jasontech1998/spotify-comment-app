@@ -19,7 +19,7 @@ class Navbar extends Component {
                 <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light" id="navbar">
                     <div className="appLogo" onClick={() => this.onClickLogo()}>
                         <i className="fab fa-spotify" id="logo"></i>
-                        <span className="navbar-brand mb-0 h1" id="navbarName">Spotify-App</span>
+                        <span className="navbar-brand mb-0 h1" id="navbarName">PodSpot</span>
                     </div>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
