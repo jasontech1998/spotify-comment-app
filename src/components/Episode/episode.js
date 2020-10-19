@@ -5,12 +5,21 @@ import { withRouter } from 'react-router-dom';
 
 import AddComment from '../AddComment/AddComment';
 import CommentList from '../CommentList/CommentList';
+import SpotifyWebApi from 'spotify-web-api-js';
+const spotify = new SpotifyWebApi();
 
 
 class Episode extends Component {
 
   state = {
-    searchInput: null
+    searchInput: null,
+    userInfo: null
+  }
+
+  componentDidMount = () => {
+    spotify.getMe().then(data => {
+      this.setState({userInfo: data})
+    })
   }
   // when component unmounts, pause the podcast and stop checking current playback status by clearing the interval
   componentWillUnmount = () => {
@@ -162,6 +171,8 @@ class Episode extends Component {
   }
 
   render() {
+    let userName = null;
+    let userId = null;
     const episode = this.props.data;
     // first set up player if not set up yet
     if (this.props.token && !this.state.deviceId) {
@@ -191,6 +202,12 @@ class Episode extends Component {
       let fullTime = this.millisecondsToMinutesConverter(this.state.duration);
       showTrackTime = <span>{currentTime} : {fullTime}</span>
     }
+
+    // check to see if state has userInfo
+    if (this.state.userInfo) {
+      userName = this.state.userInfo.display_name;
+      userId = this.state.userInfo.id
+    }
     return (
       <div>
         <h1>Episode Name: {episode.name}</h1>
@@ -207,7 +224,10 @@ class Episode extends Component {
           onChange={(e) => this.dragHandler(e)}
           type="range" value={this.state.position || ""} max={this.state.duration} />
         {showTrackTime}
-        <AddComment time={this.state.position} episodeId={this.props.data.id}/>
+        <AddComment 
+          userName={userName}
+          userId={userId}
+          time={this.state.position} episodeId={this.props.data.id}/>
         <CommentList episodeId={this.props.data.id}/>
       </div>
     )

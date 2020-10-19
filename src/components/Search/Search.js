@@ -14,13 +14,17 @@ class Search extends Component {
 
   onSubmitSearchHandler = (e) => {
     e.preventDefault();
-    this.setState({searchInput: ""});
-    this.props.history.push({
-      pathname: "/searchResults",
-      state: {
-          searchInput: this.state.searchInput,
-          token: this.props.token}
-    });
+    if (this.state.searchInput === "") {
+      console.log('no input')
+    } else {
+      this.setState({searchInput: ""});
+      this.props.history.push({
+        pathname: "/searchResults",
+        state: {
+            searchInput: this.state.searchInput,
+            token: this.props.token}
+      });
+    }
   }
 
   render () {
