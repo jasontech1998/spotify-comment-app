@@ -18,9 +18,17 @@ class Episode extends Component {
   }
 
   componentDidMount = () => {
+    console.log('episode has mounted')
+    // first set up player if not set up yet
+    if (this.props.token && !this.state.deviceId) {
+      console.log("about to setup player")
+      this.setUpPlayer();
+    }
+
     spotify.getMe().then(data => {
       this.setState({userInfo: data})
     })
+    
   }
   // when component unmounts, pause the podcast and stop checking current playback status by clearing the interval
   componentWillUnmount = () => {
@@ -168,18 +176,25 @@ class Episode extends Component {
     this.player.seek(e.target.value).then(() => {
       console.log('changed position')
     })
-    // add spotify seek position here
+  }
+
+  // update position to timestamp in comment
+  clickTimeStampHandler = (timestamp) => {
+    this.setState({position: timestamp})
+    this.player.seek(timestamp).then(() => {
+      console.log('changed position')
+    })
+    // if paused, automatically play
+    if (!this.state.playing) {
+      this.player.togglePlay();
+    }
   }
 
   render() {
     let userName = null;
     let userId = null;
     const episode = this.props.data;
-    // first set up player if not set up yet
-    if (this.props.token && !this.state.deviceId) {
-      console.log("about to setup player")
-      this.setUpPlayer();
-    }
+    
 
     // start as playing icon
     let playOrPause = (
@@ -225,13 +240,15 @@ class Episode extends Component {
           onChange={(e) => this.dragHandler(e)}
           type="range" value={this.state.position || ""} max={this.state.duration} />
         {showTrackTime}
-        <Rate episodeId={this.props.data.id}/>
+        <Rate episodeId={this.props.data.id} userId={userId}/>
         <AddComment 
           userName={userName}
           userId={userId}
           time={this.state.position} 
           episodeId={this.props.data.id}/>
-        <CommentList episodeId={this.props.data.id}/>
+        <CommentList 
+          episodeId={this.props.data.id} 
+          onClick={(timestamp) => this.clickTimeStampHandler(timestamp)}/>
       </div>
     )
   }

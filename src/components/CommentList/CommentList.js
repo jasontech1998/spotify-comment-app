@@ -35,7 +35,9 @@ class CommentList extends Component {
                     let commentTime = this.millisecondsToMinutesConverter(comments.time);
                     return (
                         <div className="singleComment" key= {comments + index} id={comments.episodeId}>
-                            <button id="goToTimeBtn"><h4>TimeStamp: {commentTime}</h4></button>
+                            <button 
+                                onClick={() => this.props.onClick(comments.time)}
+                                id="goToTimeBtn">{commentTime}</button>
                             <hr id="commentRule"></hr>
                             <div id="commenter">
                                 <h5>{comments.userName}: {comments.comment}</h5>
