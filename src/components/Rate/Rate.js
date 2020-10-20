@@ -16,7 +16,6 @@ class Rate extends Component {
     componentDidMount = () => {
         console.log('rate has mounted')
         axios.get("/episodes/"+ this.props.episodeId +"/rating.json").then(response => {
-            console.log(response.data);
             this.setState({
                 ratings: response.data,
                 likes: response.data.likes,

@@ -4,7 +4,7 @@ import './EpisodesList.css';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Episode from '../../components/Episode/episode';
 import Navbar from '../../components/Navbar/Navbar';
-import episode from '../../components/Episode/episode';
+
 
 const spotify = new SpotifyWebApi();
 
@@ -39,7 +39,9 @@ class EpisodesList extends Component {
       showDisplay = (
         <Auxiliary>
           <div className="imageWrapper">
-            <img src={showData.images[0].url} style={{width: "230px", height: "230px"}}/>
+            <img 
+              alt="showImage"
+              src={showData.images[0].url} style={{width: "230px", height: "230px"}}/>
           </div>
           <div className="showDataWrapper">
             <div>
@@ -64,7 +66,9 @@ class EpisodesList extends Component {
                 className="episodeWrapper"
                 key={episode.id}>
                 <div className="imageWrapper">
-                  <img src={episode.images[0].url} style={{width: "160px", height: "160px"}}/>
+                  <img
+                    alt="episodesImage" 
+                    src={episode.images[0].url} style={{width: "160px", height: "160px"}}/>
                 </div>
                 <div className="episodeDataWrapper">
                   <div className="episodeTitle">

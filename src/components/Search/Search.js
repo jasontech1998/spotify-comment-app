@@ -29,7 +29,7 @@ class Search extends Component {
 
   render () {
     let placeholderValue = "What's your favorite podcast?"
-    console
+    // change placeholder if one searchResults or episodesList
     if (this.props.history.location.pathname === "/searchResults" || this.props.history.location.pathname === "/episodesList") {
       placeholderValue = "Search";
     }

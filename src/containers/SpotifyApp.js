@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import ScrollToTop from '../hoc/ScrollToTop/ScrollToTop';
 import './SpotifyApp.css';
@@ -26,8 +26,19 @@ class SpotifyApp extends Component {
     }
   }
   render() {
-    return (
-      <ScrollToTop>
+    // if user is not logged in
+    let routes = (
+      <Switch>
+        <Route path="/" exact render={() => (
+          <Home token={this.state.token}/>
+        )}/>
+        {/* redirect to home page if they're on other pages */}
+        <Redirect to="/" />
+      </Switch>
+    )
+    // if user is logged in
+    if (this.state.token) {
+      routes = (
         <Switch>
           <Route path="/" exact render={() => (
             <Home token={this.state.token}/>
@@ -36,6 +47,11 @@ class SpotifyApp extends Component {
           <Route path="/episodesList" exact component={EpisodesList} />
           <Route render={() => <center><h1 id="error">404 Not Found</h1></center>} />
         </Switch>
+      )
+    }
+    return (
+      <ScrollToTop>
+        {routes}
       </ScrollToTop>
     );
   };

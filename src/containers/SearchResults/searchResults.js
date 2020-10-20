@@ -15,7 +15,6 @@ class SearchResults extends Component {
   }
 
   componentDidMount = () => {
-    console.log("component did mount")
     // when searchResult first mounts, use the search input passed down from Search component (from home component) and search up the result of shows
     // destructure object passed down from search input
     const {token, searchInput} = this.props.location.state;
@@ -59,7 +58,6 @@ class SearchResults extends Component {
     }
     // if there is episodesResult in state, the user has clicked on a show, so display the result of the episodes instead of searchResults (it will display a list of episodes)
     if (this.state.episodesResult) {
-      console.log("navigate to episodesResult")
       this.props.history.push({
         pathname: "/episodesList",
         state: {
@@ -72,7 +70,6 @@ class SearchResults extends Component {
 
   // When a user clicks on a show from search results, get the data of the episodes in the show and store it in state
   onClickShowHandler = (show) => {
-    console.log(show)
     spotify.getShowEpisodes(show.id, {limit: 50})
       .then(episodes => {
         this.setState({

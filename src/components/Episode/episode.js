@@ -9,6 +9,8 @@ import Rate from '../Rate/Rate';
 import SpotifyWebApi from 'spotify-web-api-js';
 const spotify = new SpotifyWebApi();
 
+// global variable for interval
+let interval;
 
 class Episode extends Component {
 
@@ -33,8 +35,8 @@ class Episode extends Component {
   // when component unmounts, pause the podcast and stop checking current playback status by clearing the interval
   componentWillUnmount = () => {
     console.log('unmounted episode')
-    this.onPauseClick();
-    clearInterval(this.interval);
+    this.player.pause();
+    clearInterval(interval);
   }
 
   // This is triggered everytime a user presses play or pause
@@ -128,8 +130,9 @@ class Episode extends Component {
       spotify_uri: uri,
     });
     // after the episode starts playing, check current state of episode every second for real time position updates
-    setInterval(() => this.player.getCurrentState().then(state => {
+    interval = setInterval(() => this.player.getCurrentState().then(state => {
       if (state) {
+        console.log('checking every second')
         const {current_track: currentTrack} = state.track_window;
         const position = state.position;
         const duration = state.duration;
@@ -156,11 +159,37 @@ class Episode extends Component {
   }
 
   onPauseClick = () => {
-    this.player.pause().then(() => console.log("pause"));
+    this.player.pause().then(() => console.log("pause and clear current state interval"));
+    clearInterval(interval);
   }
 
   onPlayClick = () => {
-    this.player.togglePlay();
+    this.player.togglePlay().then(() => console.log("play and start up current state interval"));
+    interval = setInterval(() => this.player.getCurrentState().then(state => {
+      if (state) {
+        console.log('checking every second')
+        const {current_track: currentTrack} = state.track_window;
+        const position = state.position;
+        const duration = state.duration;
+        const trackName = currentTrack.name;
+        const albumName = currentTrack.album.name;
+        const artistName = currentTrack.artists
+          .map(artist => artist.name)
+          .join(", ");
+        const playing = !state.paused;
+        // set the real time updates into state
+        this.setState({
+          position,
+          duration,
+          trackName,
+          albumName,
+          artistName,
+          playing
+        });
+      } else {
+        console.log('error')
+      }
+    }), 1000);
   }
 
   // Converts millisecond to minutes
@@ -229,7 +258,8 @@ class Episode extends Component {
         <h1>Episode Name: {episode.name}</h1>
         <div id="player">
           <img 
-            src={episode.images[0].url} 
+            src={episode.images[0].url}
+            alt="episodeImage" 
             style={{width: "100px", height: "100px"}}/>
           {playOrPause}
         </div>
