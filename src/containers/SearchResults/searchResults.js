@@ -73,7 +73,7 @@ class SearchResults extends Component {
   // When a user clicks on a show from search results, get the data of the episodes in the show and store it in state
   onClickShowHandler = (show) => {
     console.log(show)
-    spotify.getShowEpisodes(show.id, {limit: 8})
+    spotify.getShowEpisodes(show.id, {limit: 50})
       .then(episodes => {
         this.setState({
           searchResults: null,

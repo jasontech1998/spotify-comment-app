@@ -1,12 +1,13 @@
 #navbarName{
    font-family: 'Noto Sans JP', sans-serif;
-   background: -webkit-linear-gradient(#015211, #abffbb);
+   background: -webkit-linear-gradient(#eee,#bdbdbd);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
+   font-size: 200%;
 }
 
 #logo{
-   background: -webkit-linear-gradient(#015211, #abffbb);
+   background: -webkit-linear-gradient(#eee,#bdbdbd);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
 }
