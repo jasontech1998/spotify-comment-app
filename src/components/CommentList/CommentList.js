@@ -8,11 +8,17 @@ class CommentList extends Component {
     state = {
         comments: []
     }
+
+    // Converts millisecond to minutes
+    millisecondsToMinutesConverter = (millis) => {
+        var minutes = Math.floor(millis / 60000);
+        var seconds = ((millis % 60000) / 1000).toFixed(0);
+        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    }
   
     render() {
         // Retrive comments from firebase
-        const queryParams = '?orderBy="episodeId"&equalTo="' + this.props.episodeId + '"';
-        axios.get('/comments.json' + queryParams).then(response => {
+        axios.get("/episodes/" + this.props.episodeId + "/comments.json").then(response => {
             const results = [];
             for (let key in response.data) {
                 results.unshift({
@@ -26,11 +32,15 @@ class CommentList extends Component {
         let commentList = (
             <Auxiliary>
                 {this.state.comments.map((comments, index) => {
+                    let commentTime = this.millisecondsToMinutesConverter(comments.time);
                     return (
                         <div className="singleComment" key= {comments + index} id={comments.episodeId}>
-                            <button id="goToTimeBtn"><h4>TimeStamp: {comments.time}</h4></button>
+                            <button id="goToTimeBtn"><h4>TimeStamp: {commentTime}</h4></button>
                             <hr id="commentRule"></hr>
-                            <h5>{comments.comment}</h5>
+                            <div id="commenter">
+                                <h5>{comments.userName}: {comments.comment}</h5>
+                            </div>
+                            
                         </div>  
                     );
                 })}

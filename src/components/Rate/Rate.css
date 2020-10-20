@@ -1,0 +1,22 @@
+.Rate{
+    color: white;
+}
+
+#thumbup{
+    background: none;
+    border: none;
+    color: white;
+}
+#thumbdown{
+    background: none;
+    border: none;
+    color: white;
+}
+
+#thumbup:hover{
+    color: green;
+}
+
+#thumbdown:hover{
+    color: red;
+}

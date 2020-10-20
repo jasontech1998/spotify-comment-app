@@ -35,6 +35,10 @@
 #addCommentBtn{
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #34c76c;
+    color: white;
     font-family: 'Noto Sans JP', sans-serif;
+}
+
+#addCommentBtn:hover {
+    color: #34c76c;
 }

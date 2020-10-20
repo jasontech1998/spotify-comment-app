@@ -31,15 +31,14 @@ class AddComment extends Component {
     AddCommentHandler = () => {
         //Only add comment if theres a comment
         if(this.state.comment !== "") {
-          //Grab time value
-          let currentTime = this.millisecondsToMinutesConverter(this.props.time);
           // Add time, comment, and episodeId to firebase
           const comment = {
             episodeId: this.props.episodeId,
-            time: currentTime,
-            comment: this.state.comment
+            time: this.props.time,
+            comment: this.state.comment,
+            userName: this.props.userName
           }
-          axios.post('/comments.json', comment);
+          axios.post("/episodes/"+ this.props.episodeId +"/comments.json", comment);
           // Clear the comment state value
           this.setState({comment: ""})
         } else {

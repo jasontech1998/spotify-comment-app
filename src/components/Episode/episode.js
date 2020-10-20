@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 import AddComment from '../AddComment/AddComment';
 import CommentList from '../CommentList/CommentList';
+import Rate from '../Rate/Rate';
 import SpotifyWebApi from 'spotify-web-api-js';
 const spotify = new SpotifyWebApi();
 
@@ -224,10 +225,12 @@ class Episode extends Component {
           onChange={(e) => this.dragHandler(e)}
           type="range" value={this.state.position || ""} max={this.state.duration} />
         {showTrackTime}
+        <Rate episodeId={this.props.data.id}/>
         <AddComment 
           userName={userName}
           userId={userId}
-          time={this.state.position} episodeId={this.props.data.id}/>
+          time={this.state.position} 
+          episodeId={this.props.data.id}/>
         <CommentList episodeId={this.props.data.id}/>
       </div>
     )

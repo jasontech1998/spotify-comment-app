@@ -20,3 +20,12 @@
     border: none;
     color: white;
 }
+
+#goToTimeBtn:hover{
+    color: #34c76c;
+}
+
+#commenter{
+    display: flex;
+    justify-content: left;
+}
