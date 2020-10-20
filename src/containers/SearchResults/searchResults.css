@@ -1,5 +1,5 @@
 .searchResultsContainer {
-  padding: 32px 200px;
+  padding: 50px;
 }
 
 .searchResultsGrid {
@@ -52,4 +52,21 @@
 
 .publishedTitle {
   font-size: 12px;
+}
+
+/* MOBILE */
+@media only screen
+  and (max-device-width: 600px) {
+    .searchResultsContainer {
+      padding: 10px;
+    }
+    .searchResultsGrid {
+      display: center;
+      grid-template-columns: none; 
+      gap: 1em;
+    }
+    .imageWrapper{
+      margin-left: auto;
+      margin-right: auto;
+    }
 }

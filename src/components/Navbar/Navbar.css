@@ -1,3 +1,8 @@
+.appLogo {
+   cursor: pointer;
+   display: flex;
+}
+
 #navbarName{
    font-family: 'Noto Sans JP', sans-serif;
    background: -webkit-linear-gradient(#eee,#bdbdbd);
@@ -12,11 +17,20 @@
    -webkit-text-fill-color: transparent;
 }
 
-#logoutBtn{
-   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-   font-family: 'Noto Sans JP', sans-serif;
+.Navbar{
+   margin-top: 10px;
+   margin-left: 5px;
+   display: flex;
 }
 
-.appLogo {
-   cursor: pointer;
+/* MOBILE */
+@media only screen
+  and (max-device-width: 600px) {
+   .appLogo {
+      justify-content: center;
+   }
+  .Navbar{
+     display: block;
+     margin-bottom: 10px;
+  }
 }

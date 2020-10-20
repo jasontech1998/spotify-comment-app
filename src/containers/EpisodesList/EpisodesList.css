@@ -59,3 +59,44 @@
 .subTitleText {
   color: grey;
 }
+
+#episodeImage{
+  width: 160px;
+  height: 160px;
+}
+
+/* MOBILE */
+@media only screen
+  and (max-device-width: 600px) {
+    .episodesListWrapper {
+      padding: 10px;
+    }
+    .selectedShow {
+      display: block;
+    }
+    #showImage{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .showDataWrapper {
+      margin-top: 5px;
+      margin-left: 10px;
+    }
+    #episodeImage{
+      width: 80px;
+      height: 80px;
+    }
+    .episodeWrapper {
+      padding: 12px;
+    }
+    .titleDateWrapper {
+      display: block;
+    }
+    .episodeDataWrapper {
+      margin-left: 10px;
+    }
+    .episodeTitle {
+      margin-bottom: 5px;
+    }
+  }

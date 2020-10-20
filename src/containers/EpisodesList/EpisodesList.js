@@ -40,6 +40,7 @@ class EpisodesList extends Component {
         <Auxiliary>
           <div className="imageWrapper">
             <img 
+              id="showImage"
               alt="showImage"
               src={showData.images[0].url} style={{width: "230px", height: "230px"}}/>
           </div>
@@ -67,8 +68,9 @@ class EpisodesList extends Component {
                 key={episode.id}>
                 <div className="imageWrapper">
                   <img
+                    id="episodeImage"
                     alt="episodesImage" 
-                    src={episode.images[0].url} style={{width: "160px", height: "160px"}}/>
+                    src={episode.images[0].url}/>
                 </div>
                 <div className="episodeDataWrapper">
                   <div className="episodeTitle">
