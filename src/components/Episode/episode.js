@@ -305,14 +305,15 @@ class Episode extends Component {
           </div>
         </div>
         <div className="playerContainer">
-          <div className="trackTimeWrapper">
-            {showTrackTime}
-          </div>
           <div className="progressBarWrapper">
             <input 
+              id="progessBar"
               style={{width: "100%"}}
               onChange={(e) => this.dragHandler(e)}
               type="range" value={this.state.position || ""} max={this.state.duration} />
+          </div>
+          <div className="trackTimeWrapper">
+            {showTrackTime}
           </div>
           <AddComment 
             playButton={playOrPause}
@@ -327,7 +328,9 @@ class Episode extends Component {
             episodeId={this.props.data.id} 
             onClick={(timestamp) => this.clickTimeStampHandler(timestamp)}/>
           <div className="miniEpisodesList">
-            <h3 style={{margin: "10px"}}>More Episodes</h3>
+            <div className="stickyName">
+              <h3 style={{margin: "10px"}}>More Episodes</h3>
+            </div>
             {showEpisodesList}
           </div>
         </div>

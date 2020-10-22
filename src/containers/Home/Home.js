@@ -6,6 +6,7 @@ import Search from '../../components/Search/Search';
 
 
 class Home extends Component {
+
   render() {
     
     let signOrSearch = (

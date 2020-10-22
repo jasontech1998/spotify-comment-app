@@ -36,7 +36,7 @@
 .miniEpisodesList {
     background-color: #292D39;
     border-radius: 8px;
-    padding: 10px;
+    padding: 0px 10px 10px 10px;
     max-height: 800px;
     overflow-x: overlay;
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
@@ -73,6 +73,16 @@
     height: 230px;
 }
 
+.stickyName{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    background-color: #292D39;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+/* MOBILE */
 @media only screen
   and (max-device-width: 600px) {
     .displayEpisodeData{

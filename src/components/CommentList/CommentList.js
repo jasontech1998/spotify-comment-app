@@ -33,6 +33,12 @@ class CommentList extends Component {
             <Auxiliary>
                 {this.state.comments.map((comments, index) => {
                     let commentTime = this.millisecondsToMinutesConverter(comments.time);
+                    let tempDaysAgo = new Date().getTime() - new Date(comments.date).getTime();
+                    let days = Math.floor(tempDaysAgo / (1000 * 3600 * 24));
+                    let daysAgo = <h5 id="darkerColor">{days} Days Ago</h5>
+                    if (days === 1){
+                        daysAgo = <h5 id="darkerColor">{days} Day Ago</h5>
+                    }
                     return (
                         <div className="singleComment" key= {comments + index} id={comments.episodeId}>
                             <div className="commentHeadingWrapper">
@@ -44,7 +50,7 @@ class CommentList extends Component {
                                         id="goToTimeBtn"><h5>{commentTime}</h5>
                                     </button>
                                 </div>
-                                <h5 id="darkerColor">## Days Ago</h5>
+                                {daysAgo}
                             </div>
                             <div id="commenter">
                                 <h5>{comments.comment}</h5>

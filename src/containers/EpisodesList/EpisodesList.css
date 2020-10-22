@@ -74,6 +74,7 @@
     }
     .selectedShow {
       display: block;
+      padding-bottom: 5px;
     }
     #showImage{
       display: block;

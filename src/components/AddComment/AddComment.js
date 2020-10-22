@@ -36,7 +36,8 @@ class AddComment extends Component {
             episodeId: this.props.episodeId,
             time: this.props.time,
             comment: this.state.comment,
-            userName: this.props.userName
+            userName: this.props.userName,
+            date: new Date()
           }
           axios.post("/episodes/"+ this.props.episodeId +"/comments.json", comment);
           // Clear the comment state value
