@@ -1,11 +1,62 @@
+.displayEpisodeData {
+    display: flex;
+}
+.episodeDataContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 60px;
+}
+
+.episodeNameDateWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.playerContainer {
+    background-color: #292D39;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    border-radius: 8px;
+    padding: 10px 22px;
+    margin-top: 50px;
+}
+
+.trackTimeWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.commentAndEpisodesGrid {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 1em;
+}
+
+.miniEpisodesList {
+    background-color: #292D39;
+    border-radius: 8px;
+    padding: 10px;
+    max-height: 800px;
+    overflow-x: overlay;
+}
+
+.miniEpisodeWrapper {
+    padding: 10px;
+    margin: 10px;
+    background-color: #363943;
+    border-radius: 8px;
+}
+
 #playerButton{
     background: none;
     border: none;
 }
 
 #pausePlay{
-    color: white;
+    color: #7E66D8;
 }
+
 
 #player{
     display: flex;

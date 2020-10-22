@@ -4,7 +4,7 @@
 .episodeWrapper {
   display: flex;
   padding: 32px;
-  background-color: #303030;
+  background-color: #363943;
   box-shadow: 0 5px 15px rgba(0,0,0,.5);
   border-radius: 8px;
   cursor: pointer;
@@ -57,13 +57,14 @@
 }
 
 .subTitleText {
-  color: grey;
+  color: #868895;
 }
 
 #episodeImage{
   width: 160px;
   height: 160px;
 }
+
 
 /* MOBILE */
 @media only screen

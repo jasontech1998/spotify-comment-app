@@ -76,13 +76,13 @@ class EpisodesList extends Component {
                   <div className="episodeTitle">
                     <div className="titleDateWrapper">
                       <h3 style={{fontSize: "22px", marginBottom: "0"}}>{episode.name}</h3>
-                      <span style={{fontSize: "14px", color: "grey"}}>{episode.release_date}</span>
+                      <span style={{fontSize: "14px", color: "#868895"}}>{episode.release_date}</span>
                     </div>
-                    <span style={{fontSize: "14px", color: "grey"}}>{durationTime}</span>
+                    <span style={{fontSize: "14px", color: "#868895"}}>{durationTime}</span>
                   </div>
                   <div className="aboutEpisodeWrapper">
                     <span>About this Episode</span>
-                    <span style={{fontSize: "14px", color: "grey"}}>{episode.description}</span>
+                    <span style={{fontSize: "14px", color: "#868895"}}>{episode.description}</span>
                   </div>
                 </div>
               </div>
@@ -93,9 +93,12 @@ class EpisodesList extends Component {
     }
     // if episodeData
     if (this.state.episodeData) {
+      const { episodeData } = this.state;
+      console.log(episodeData);
       showEpisodes = (
-        <Episode data={this.state.episodeData} token={this.props.location.state.token}/>
+        <Episode data={episodeData} token={this.props.location.state.token}/>
       )
+      showDisplay = null;
       episodesTitle = null;
     }
 

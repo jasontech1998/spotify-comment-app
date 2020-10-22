@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Episode.css';
 import { withRouter } from 'react-router-dom';
-
+import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 
 import AddComment from '../AddComment/AddComment';
 import CommentList from '../CommentList/CommentList';
@@ -222,19 +222,38 @@ class Episode extends Component {
   render() {
     let userName = null;
     let userId = null;
+    let showEpisodesList = null;
     const episode = this.props.data;
     
+    // create mini episodesList
+    if (this.props.location.state.episodesResult) {
+      const episodes = this.props.location.state.episodesResult;
+      showEpisodesList = (
+        <Auxiliary>
+          {episodes.map((episode) => {
+            return (
+              <div className="miniEpisodeWrapper">
+                <img
+                  alt="showImage"
+                  src={episode.images[0].url} style={{width: "50px", height: "50px"}}/>
+                <span>{episode.name}</span>
+              </div>
+            )
+          })}
+        </Auxiliary>
+      )
+    }
 
     // start as playing icon
     let playOrPause = (
       <button id="playerButton" onClick={this.onPlayClick}>
-        <i className="fas fa-play-circle fa-4x" id="pausePlay"></i>
+        <i className="fas fa-play-circle fa-2x" id="pausePlay"></i>
       </button>
     );
     if(this.state.playing) {
       playOrPause = (
         <button id="playerButton" onClick={this.onPauseClick}>
-          <i className="fas fa-pause-circle fa-4x" id="pausePlay"></i>
+          <i className="fas fa-pause-circle fa-2x" id="pausePlay"></i>
         </button>
       );
     }
@@ -245,7 +264,12 @@ class Episode extends Component {
       // convert ms integer to minutes
       let currentTime = this.millisecondsToMinutesConverter(this.state.position);
       let fullTime = this.millisecondsToMinutesConverter(this.state.duration);
-      showTrackTime = <span>{currentTime} : {fullTime}</span>
+      showTrackTime = (
+        <Auxiliary>
+          <span style={{color: "#868895"}}>{currentTime}</span>
+          <span  style={{color: "#868895"}}>{fullTime}</span>
+        </Auxiliary>
+      )
     }
 
     // check to see if state has userInfo
@@ -255,30 +279,60 @@ class Episode extends Component {
     }
     return (
       <div>
-        <h1>Episode Name: {episode.name}</h1>
-        <div id="player">
-          <img 
-            src={episode.images[0].url}
-            alt="episodeImage" 
-            style={{width: "100px", height: "100px"}}/>
-          {playOrPause}
+        <div className="displayEpisodeData">
+          <div className="episodeDataContainer">
+            <div>
+              <div className="episodeNameDateWrapper">
+                <h3>{episode.name}</h3>
+                <div>
+                  <span style={{marginRight: "10px"}}>Release Date</span>
+                  <span style={{color: "#868895"}}>{episode.release_date}</span>
+                </div>
+              </div>
+              <span className="subTitleText">Hosted by {this.props.location.state.selectedShow.publisher}</span>
+            </div>
+            <div className="aboutDescriptionWrapper">
+              <span>About this Episode</span>
+              <span className="subTitleText">{episode.description}</span>
+            </div>
+          </div>
+          <div className="imageWrapper">
+            <img 
+              id="showImage"
+              alt="showImage"
+              src={episode.images[0].url} style={{width: "230px", height: "230px"}}/>
+          </div>
         </div>
-        <p>Description: {episode.description}</p>
-        <p>Release Date: {episode.release_date}</p>
-        {/* progress bar testing */}
-        <input 
-          onChange={(e) => this.dragHandler(e)}
-          type="range" value={this.state.position || ""} max={this.state.duration} />
-        {showTrackTime}
+        <div className="playerContainer">
+          <div className="trackTimeWrapper">
+            {showTrackTime}
+          </div>
+          <div className="progressBarWrapper">
+            <input 
+              style={{width: "100%"}}
+              onChange={(e) => this.dragHandler(e)}
+              type="range" value={this.state.position || ""} max={this.state.duration} />
+          </div>
+          <div className="commentAndPlayWrapper">
+            {playOrPause}
+          </div>
+        </div>
         <Rate episodeId={this.props.data.id} userId={userId}/>
         <AddComment 
           userName={userName}
           userId={userId}
           time={this.state.position} 
           episodeId={this.props.data.id}/>
-        <CommentList 
-          episodeId={this.props.data.id} 
-          onClick={(timestamp) => this.clickTimeStampHandler(timestamp)}/>
+        <h3 style={{marginTop: "50px"}}>Comments</h3>
+        <div className="commentAndEpisodesGrid">
+          <CommentList 
+            episodeId={this.props.data.id} 
+            onClick={(timestamp) => this.clickTimeStampHandler(timestamp)}/>
+          <div className="miniEpisodesList">
+            <h3 style={{margin: "10px"}}>Episodes List</h3>
+            {showEpisodesList}
+          </div>
+        </div>
       </div>
     )
   }
