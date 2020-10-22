@@ -81,7 +81,7 @@ class Rate extends Component {
         if (this.state.ratings.ratedUsers && this.state.ratings.ratedUsers.includes(this.props.userId)) {
             showButton = (
                 <button id="thumbup" onClick={this.likeHandler}>
-                    <i className="fas fa-thumbs-up" style={{color: "green"}}></i>
+                    <i className="fas fa-thumbs-up" id="likedThumb"></i>
                 </button>
             )
         }

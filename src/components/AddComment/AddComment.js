@@ -50,21 +50,22 @@ class AddComment extends Component {
     render() {
     let timeChoice = null;
     let currentTime = this.millisecondsToMinutesConverter(this.props.time);
-    timeChoice = <h3 id="timeChoice">TimeStamp: {currentTime}</h3>
+    timeChoice = <h3 id="timeChoice">{currentTime}</h3>
     return (
       <div className="AddComment">
-            <h2 id="commentHeader">Add a Comment!</h2>
-            <hr id="ruler"></hr>
             <div id="commentTime">
-                {timeChoice}
+                <div className="playTimeWrapper">
+                  {this.props.playButton}
+                  {timeChoice}
+                </div>
                 <textarea 
-                    className="form-control" 
+                    className="form-control"
+                    id="commentForm"
                     onChange={(event) => this.onChangeHandler(event)} 
                     name="comment"
                     value={this.state.comment}  
-                    id="exampleFormControlTextarea1" 
-                    rows="3" 
-                    maxLength="150"
+                    rows="2" 
+                    maxLength="300"
                     placeholder="What are your thoughts?">
                 </textarea>
             </div>

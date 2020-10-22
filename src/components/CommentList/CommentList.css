@@ -4,11 +4,9 @@
     border-radius: 10px;
     color: white;
     font-family: 'Noto Sans JP', sans-serif;
-}
-
-#commentRule {
-    border-color: white;
-    width: 95%;
+    margin-bottom: 12px;
+    padding: 10px 10px 10px 10px;
+    font-family: 'Roboto', sans-serif;
 }
 
 #goToTimeBtn{
@@ -21,7 +19,18 @@
     color: #34c76c;
 }
 
-#commenter{
+#darkerColor{
+    color: #868895;
+    margin-left: 5px;
+}
+
+.nameTimeWrapper{
     display: flex;
     justify-content: left;
+}
+
+.commentHeadingWrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }

@@ -1,10 +1,6 @@
 .AddComment{
-    background-color: #363943;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
-    border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 15px;
 }
-
 #commentHeader{
     color: white;
     font-family: 'Noto Sans JP', sans-serif;
@@ -15,9 +11,13 @@
 #commentTime{
     display: flex;
     justify-content: left;
-    width: 90%;
     margin-left: auto;
     margin-right: auto;
+}
+
+#commentForm{
+    flex-grow:1;
+    border-radius: 5px;
 }
 
 #ruler{
@@ -27,6 +27,13 @@
 
 #timeChoice{
     margin-right: 10px;
+    margin-left: 5px;
+    background: #34c76c;
+    border-radius: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 10px;
+    padding-bottom: 8px;
 }
 
 #addCommentBtn{
@@ -36,6 +43,26 @@
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+.playTimeWrapper{
+    display: flex;
+}
+
 #addCommentBtn:hover {
     color: #34c76c;
+}
+
+/* MOBILE */
+@media only screen
+  and (max-device-width: 600px) {
+    .AddComment{
+        margin-top: 5px;
+    }
+    #commentTime{
+        display: block;
+    }
+    .playTimeWrapper{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
 }

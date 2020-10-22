@@ -236,7 +236,7 @@ class Episode extends Component {
                 <img
                   alt="showImage"
                   src={episode.images[0].url} style={{width: "50px", height: "50px"}}/>
-                <span>{episode.name}</span>
+                <span id="miniName">{episode.name}</span>
               </div>
             )
           })}
@@ -247,13 +247,13 @@ class Episode extends Component {
     // start as playing icon
     let playOrPause = (
       <button id="playerButton" onClick={this.onPlayClick}>
-        <i className="fas fa-play-circle fa-2x" id="pausePlay"></i>
+        <i className="fas fa-play-circle fa-3x" id="pausePlay"></i>
       </button>
     );
     if(this.state.playing) {
       playOrPause = (
         <button id="playerButton" onClick={this.onPauseClick}>
-          <i className="fas fa-pause-circle fa-2x" id="pausePlay"></i>
+          <i className="fas fa-pause-circle fa-3x" id="pausePlay"></i>
         </button>
       );
     }
@@ -295,12 +295,13 @@ class Episode extends Component {
               <span>About this Episode</span>
               <span className="subTitleText">{episode.description}</span>
             </div>
+            <Rate episodeId={this.props.data.id} userId={userId}/>
           </div>
           <div className="imageWrapper">
             <img 
               id="showImage"
               alt="showImage"
-              src={episode.images[0].url} style={{width: "230px", height: "230px"}}/>
+              src={episode.images[0].url}/>
           </div>
         </div>
         <div className="playerContainer">
@@ -313,23 +314,20 @@ class Episode extends Component {
               onChange={(e) => this.dragHandler(e)}
               type="range" value={this.state.position || ""} max={this.state.duration} />
           </div>
-          <div className="commentAndPlayWrapper">
-            {playOrPause}
-          </div>
+          <AddComment 
+            playButton={playOrPause}
+            userName={userName}
+            userId={userId}
+            time={this.state.position} 
+            episodeId={this.props.data.id}/>
         </div>
-        <Rate episodeId={this.props.data.id} userId={userId}/>
-        <AddComment 
-          userName={userName}
-          userId={userId}
-          time={this.state.position} 
-          episodeId={this.props.data.id}/>
         <h3 style={{marginTop: "50px"}}>Comments</h3>
         <div className="commentAndEpisodesGrid">
           <CommentList 
             episodeId={this.props.data.id} 
             onClick={(timestamp) => this.clickTimeStampHandler(timestamp)}/>
           <div className="miniEpisodesList">
-            <h3 style={{margin: "10px"}}>Episodes List</h3>
+            <h3 style={{margin: "10px"}}>More Episodes</h3>
             {showEpisodesList}
           </div>
         </div>

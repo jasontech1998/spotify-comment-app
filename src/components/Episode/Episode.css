@@ -39,6 +39,7 @@
     padding: 10px;
     max-height: 800px;
     overflow-x: overlay;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
 }
 
 .miniEpisodeWrapper {
@@ -61,4 +62,37 @@
 #player{
     display: flex;
     justify-content: left;
+}
+
+#miniName{
+    margin-left: 5px;
+}
+
+#showImage{
+    width: 230px;
+    height: 230px;
+}
+
+@media only screen
+  and (max-device-width: 600px) {
+    .displayEpisodeData{
+        display: block;
+    }
+    .episodeNameDateWrapper{
+        display: block;
+    }
+    .episodeDataContainer{
+        margin-right: 0px;
+        padding: 15px 15px 15px 15px;
+    }
+    #showImage{
+        width: 200px;
+        height: 200px;
+    }
+    .commentAndEpisodesGrid {
+        display: block;
+    }
+    .miniEpisodesList {
+        margin-top: 60px;
+    }
 }

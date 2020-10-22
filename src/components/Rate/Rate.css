@@ -7,16 +7,7 @@
     border: none;
     color: white;
 }
-#thumbdown{
-    background: none;
-    border: none;
-    color: white;
-}
 
-#thumbup:hover{
-    color: green;
-}
-
-#thumbdown:hover{
-    color: red;
+#likedThumb{
+    color: #34c76c;
 }
