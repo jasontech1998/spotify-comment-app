@@ -25,7 +25,7 @@ class Home extends Component {
       <div className="Home">
         <div className="appTitle">
           <i className="fab fa-spotify"></i>
-          <h1 id="appName">PodSpot</h1>
+          <h1 id="appName" style={{marginBottom: "0px", marginLeft: "8px"}}>PodSpot</h1>
         </div>
         <h4 id="bio">Listen, comment, and rate your favorite podcasts.</h4>
         {signOrSearch}

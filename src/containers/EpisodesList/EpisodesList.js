@@ -30,6 +30,11 @@ class EpisodesList extends Component {
     return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
   }
 
+  onClickMiniEpisode = (episode) => {
+    // user clicked on episode in mini episodelist, change episodeData to clicked episode
+    this.setState({episodeData: episode})
+  }
+
   render () {
     let showEpisodes = null;
     let showDisplay = null;
@@ -94,9 +99,11 @@ class EpisodesList extends Component {
     // if episodeData
     if (this.state.episodeData) {
       const { episodeData } = this.state;
-      console.log(episodeData);
       showEpisodes = (
-        <Episode data={episodeData} token={this.props.location.state.token}/>
+        <Episode 
+          data={episodeData} 
+          token={this.props.location.state.token}
+          clickedMini={(episode) => this.onClickMiniEpisode(episode)}/>
       )
       showDisplay = null;
       episodesTitle = null;

@@ -34,7 +34,7 @@ class Search extends Component {
       placeholderValue = "Search";
     }
     return (
-      <div className="container">
+      <div className="searchContainer">
         <form className="search" 
           onSubmit={(e) => this.onSubmitSearchHandler(e)}>
           <button type="submit"><i className="fa fa-search"></i></button>

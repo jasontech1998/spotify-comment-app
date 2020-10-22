@@ -1,11 +1,18 @@
-.appLogo {
-   cursor: pointer;
+.Navbar{
+   padding: 18px 24px;
    display: flex;
    justify-content: space-between;
 }
 
+.appLogo {
+   cursor: pointer;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;;
+}
+
 #navbarName{
-   font-family: 'Noto Sans JP', sans-serif;
+   font-family: 'Poppins', sans-serif;
    background: -webkit-linear-gradient(#eee,#bdbdbd);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
@@ -18,11 +25,6 @@
    -webkit-text-fill-color: transparent;
 }
 
-.Navbar{
-   margin-top: 10px;
-   margin-left: 5px;
-   display: flex;
-}
 
 /* MOBILE */
 @media only screen

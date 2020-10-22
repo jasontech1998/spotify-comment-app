@@ -12,25 +12,28 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .playerContainer {
     background-color: #292D39;
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
     border-radius: 8px;
-    padding: 10px 22px;
+    padding: 24px 30px;
     margin-top: 50px;
 }
 
 .trackTimeWrapper {
     display: flex;
     justify-content: space-between;
+    font-size: 14px;
 }
 
 .commentAndEpisodesGrid {
     display: grid;
     grid-template-columns: 60% 40%;
     gap: 1em;
+    margin-top: 30px;
 }
 
 .miniEpisodesList {
@@ -46,12 +49,22 @@
     padding: 10px;
     margin: 10px;
     background-color: #363943;
-    border-radius: 8px;
+    border-radius: 0.5rem;
+    display: flex;
+    cursor: pointer;
+}
+
+.miniEpisodeData {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 #playerButton{
     background: none;
     border: none;
+    margin: 0 10px 0;
 }
 
 #pausePlay{
@@ -64,9 +77,6 @@
     justify-content: left;
 }
 
-#miniName{
-    margin-left: 5px;
-}
 
 #showImage{
     width: 230px;

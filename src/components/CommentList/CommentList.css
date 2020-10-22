@@ -3,21 +3,17 @@
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
     border-radius: 10px;
     color: white;
-    font-family: 'Noto Sans JP', sans-serif;
     margin-bottom: 12px;
-    padding: 10px 10px 10px 10px;
-    font-family: 'Roboto', sans-serif;
+    padding: 18px;
 }
 
 #goToTimeBtn{
     background: none;
     border: none;
-    color: white;
+    color: #8CC284;
 }
 
-#goToTimeBtn:hover{
-    color: #34c76c;
-}
+
 
 #darkerColor{
     color: #868895;
@@ -26,11 +22,12 @@
 
 .nameTimeWrapper{
     display: flex;
-    justify-content: left;
+    align-items: center;
 }
 
 .commentHeadingWrapper{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 5px;
 }

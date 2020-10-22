@@ -30,7 +30,20 @@ class Episode extends Component {
     spotify.getMe().then(data => {
       this.setState({userInfo: data})
     })
-    
+  }
+
+  componentDidUpdate = (prevProps, nextProps) => {
+    // it will update when user clicks on new episode from mini episode List
+    if (prevProps.data.id !== this.props.data.id) {
+      // remove deviceId so new player can properly set up
+      this.setState({deviceId: null})
+      // pause current player
+      this.player.pause();
+      // clear interval
+      clearInterval(interval);
+      // set up new player with new episode
+      this.setUpPlayer();
+    }
   }
   // when component unmounts, pause the podcast and stop checking current playback status by clearing the interval
   componentWillUnmount = () => {
@@ -219,6 +232,7 @@ class Episode extends Component {
     }
   }
 
+
   render() {
     let userName = null;
     let userId = null;
@@ -226,17 +240,27 @@ class Episode extends Component {
     const episode = this.props.data;
     
     // create mini episodesList
-    if (this.props.location.state.episodesResult) {
+    if (this.props.location.state.episodesResult && this.state.deviceId) {
       const episodes = this.props.location.state.episodesResult;
       showEpisodesList = (
         <Auxiliary>
           {episodes.map((episode) => {
+            let duration = this.millisecondsToMinutesConverter(episode.duration_ms)
             return (
-              <div className="miniEpisodeWrapper">
-                <img
-                  alt="showImage"
-                  src={episode.images[0].url} style={{width: "50px", height: "50px"}}/>
-                <span id="miniName">{episode.name}</span>
+              <div
+                key={episode.id} 
+                onClick={() => this.props.clickedMini(episode)}
+                className="miniEpisodeWrapper">
+                <div>
+                  <img
+                    alt="showImage"
+                    src={episode.images[0].url} style={{width: "100px", height: "100px"}}/>
+                </div>
+                <div className="miniEpisodeData">
+                  <h5 style={{color: "#FFFFFF"}}>{episode.name}</h5>
+                  <h5 style={{color: "#868895"}}>{duration} minutes</h5>
+                  <h5 style={{color: "#868895"}}>{episode.release_date}</h5>
+                </div>
               </div>
             )
           })}
@@ -247,13 +271,13 @@ class Episode extends Component {
     // start as playing icon
     let playOrPause = (
       <button id="playerButton" onClick={this.onPlayClick}>
-        <i className="fas fa-play-circle fa-3x" id="pausePlay"></i>
+        <i className="fas fa-play-circle fa-2x" id="pausePlay"></i>
       </button>
     );
     if(this.state.playing) {
       playOrPause = (
         <button id="playerButton" onClick={this.onPauseClick}>
-          <i className="fas fa-pause-circle fa-3x" id="pausePlay"></i>
+          <i className="fas fa-pause-circle fa-2x" id="pausePlay"></i>
         </button>
       );
     }
@@ -281,18 +305,12 @@ class Episode extends Component {
       <div>
         <div className="displayEpisodeData">
           <div className="episodeDataContainer">
-            <div>
-              <div className="episodeNameDateWrapper">
-                <h3>{episode.name}</h3>
-                <div>
-                  <span style={{marginRight: "10px"}}>Release Date</span>
-                  <span style={{color: "#868895"}}>{episode.release_date}</span>
-                </div>
-              </div>
-              <span className="subTitleText">Hosted by {this.props.location.state.selectedShow.publisher}</span>
-            </div>
             <div className="aboutDescriptionWrapper">
-              <span>About this Episode</span>
+              <h3 style={{marginBottom: "0"}}>About this Episode</h3>
+              <span 
+                style={{marginBottom: "30px"}}
+                className="subTitleText">
+                Hosted by {this.props.location.state.selectedShow.publisher}</span>
               <span className="subTitleText">{episode.description}</span>
             </div>
             <Rate episodeId={this.props.data.id} userId={userId}/>
@@ -305,6 +323,12 @@ class Episode extends Component {
           </div>
         </div>
         <div className="playerContainer">
+          <div className="episodeNameDateWrapper">
+            <h3>{episode.name}</h3>
+            <div>
+              <span style={{color: "#868895"}}>{episode.release_date}</span>
+            </div>
+          </div>
           <div className="progressBarWrapper">
             <input 
               id="progessBar"

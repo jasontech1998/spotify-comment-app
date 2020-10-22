@@ -19,7 +19,7 @@ class Navbar extends Component {
             <div className="Navbar"> 
                 <div className="appLogo" onClick={() => this.onClickLogo()}>
                     <i className="fab fa-spotify fa-2x" id="logo"></i>
-                    <h1 id="navbarName">PodSpot</h1>
+                    <h3 id="navbarName" style={{marginBottom: "0px", marginLeft: "5px"}}>PodSpot</h3>
                 </div>
                 <Search token={this.props.token}/>
             </div>
