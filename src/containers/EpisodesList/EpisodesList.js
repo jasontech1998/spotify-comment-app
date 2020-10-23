@@ -51,7 +51,7 @@ class EpisodesList extends Component {
           </div>
           <div className="showDataWrapper">
             <div>
-              <h3>{showData.name}</h3>
+              <h3 className="podcastName">{showData.name}</h3>
               <span className="subTitleText">Hosted by {showData.publisher}</span>
             </div>
             <div className="aboutDescriptionWrapper">
@@ -65,7 +65,6 @@ class EpisodesList extends Component {
         <Auxiliary>
           {this.props.location.state.episodesResult.map((episode) => {
             let durationTime = this.millisecondsToMinutesConverter(episode.duration_ms);
-
             return (
               <div
                 onClick={() => this.onClickEpisodeHandler(episode.id)} 
@@ -116,7 +115,7 @@ class EpisodesList extends Component {
           <div className="selectedShow">
             {showDisplay}
           </div>
-          <h1>{episodesTitle}</h1>
+          <h1 style={{marginTop: "30px"}}>{episodesTitle}</h1>
           <div className="episodeListGrid">
             {showEpisodes}
           </div>

@@ -25,15 +25,15 @@ class Episode extends Component {
 
   componentDidMount = () => {
     console.log('episode has mounted')
+    // get user data
+    spotify.getMe().then(data => {
+      this.setState({userInfo: data})
+    })
     // first set up player if not set up yet
     if (this.props.token && !this.state.deviceId) {
       console.log("about to setup player")
       this.setUpPlayer();
     }
-
-    spotify.getMe().then(data => {
-      this.setState({userInfo: data})
-    })
   }
 
   componentDidUpdate = (prevProps, nextProps) => {
@@ -113,9 +113,13 @@ class Episode extends Component {
       let { device_id } = data;
       await this.setState({ deviceId: device_id });
       console.log('player is ready')
-      // automatically connect spotify to web app
-      this.transferPlaybackHere();
-      
+      // if open, user is not premium so don't transfer playback
+      if (this.state.userInfo.product === "open") {
+        console.log('not premium')
+      } else {
+        // connect spotify to web app
+        this.transferPlaybackHere();
+      }
     });
   }
   // This will connect spotify to web app and play current episode
@@ -318,7 +322,7 @@ class Episode extends Component {
           </div>
           <div className="progressBarWrapper">
             <input 
-              class="range"
+              className="range"
               id="progessBar"
               style={{width: "100%"}}
               onChange={(e) => this.dragHandler(e)}

@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: 50% 50%;
   gap: 1em;
+  margin-top: 30px;
 }
 
 .showWrapper {
@@ -48,6 +49,7 @@
 .showTitle {
   font-size: 18px;
   margin-bottom: 0px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .publishedTitle {

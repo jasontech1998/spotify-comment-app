@@ -32,7 +32,7 @@ button, input {
 
 #appName{
     font-size: 110%;
-    background: -webkit-linear-gradient(#eee,#bdbdbd);
+    background: #FFFFFF;
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
 }
@@ -55,7 +55,9 @@ button, input {
 
 h1, h3 {
     color: #FFFFFF;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    margin-bottom: 0;
 }
 
 h5 {

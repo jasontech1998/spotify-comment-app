@@ -12,11 +12,10 @@
 }
 
 #navbarName{
-   font-family: 'Poppins', sans-serif;
-   background: -webkit-linear-gradient(#eee,#bdbdbd);
+   background: #FFFFFF;
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
-   font-size: 200%;
+   font-size: 32px;
 }
 
 #logo{
