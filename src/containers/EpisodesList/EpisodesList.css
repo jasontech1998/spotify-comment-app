@@ -60,6 +60,10 @@
   justify-content: space-evenly;
   margin-right: 30px;
 }
+.episodeListName {
+  font-size: 22px;
+  margin-bottom: 0;
+}
 
 .aboutEpisodeWrapper2 {
   display: flex;
@@ -100,8 +104,14 @@
       margin-right: auto;
     }
     .showDataWrapper {
-      margin-top: 5px;
+      margin-top: 10px;
       margin-left: 10px;
+      margin-right: 10px;
+      padding-left: 35px;
+      padding-right: 35px;
+    }
+    .aboutDescriptionWrapper {
+      margin-top: 10px;
     }
     #episodeImage{
       width: 80px;
@@ -128,5 +138,8 @@
     }
     .aboutEpisodeWrapper2{
       display: none;
+    }
+    .episodeListName {
+      font-size: 16px;
     }
   }

@@ -87,7 +87,9 @@ class EpisodesList extends Component {
                 <div className="episodeDataWrapper">
                   <div className="aboutEpisodeWrapper">
                     <div>
-                      <h3 style={{fontSize: "22px", marginBottom: "0"}}>{episode.name}</h3>   
+                      <h3 className="episodeListName">
+                        {episode.name}
+                      </h3>   
                       <span style={{fontSize: "14px", color: "#868895"}}>{durationTime}</span>
                     </div>
                     <div className="aboutEpisodeWrapper2">

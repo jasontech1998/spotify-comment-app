@@ -70,3 +70,11 @@ select:-webkit-autofill:focus {
 input:-webkit-autofill::first-line {
   font-size: 17px;
 }
+
+@media only screen
+  and (max-device-width: 600px) {
+    .searchContainer {
+      width: 80%;
+      margin: auto;
+    }
+  }
