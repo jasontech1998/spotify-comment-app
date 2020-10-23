@@ -1,11 +1,37 @@
 .Rate{
-    color: white;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
 }
 
 #thumbup{
+    position: relative;
+    display: inline-block;
     background: none;
+    padding: 0;
     border: none;
     color: white;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+#thumbup .tooltipText {
+    visibility: hidden;
+    font-size: 14px;
+    padding: 8px;
+    text-align:center;
+    background-color: rgb(134, 136, 149);;
+    color: #FFFFFF;
+    position: absolute;
+    width: 140px;
+    top: 140%;
+    left: 50%;
+    margin-left: -70px;
+    border-radius: 0.25rem;
+}
+
+#thumbup:hover .tooltipText {
+    visibility: visible;
 }
 
 #likedThumb{

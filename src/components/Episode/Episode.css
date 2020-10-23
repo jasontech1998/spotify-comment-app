@@ -1,12 +1,13 @@
 .displayEpisodeData {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
 }
 .episodeDataContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-right: 60px;
+    margin-left: 60px;
 }
 
 .episodeNameDateWrapper {
@@ -36,6 +37,12 @@
     grid-template-columns: 60% 40%;
     gap: 1em;
     margin-top: 30px;
+}
+
+.likesContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;;
 }
 
 .miniEpisodesList {

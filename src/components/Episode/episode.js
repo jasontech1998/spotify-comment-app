@@ -11,6 +11,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 import play from '../Images/play.png';
 import pause from '../Images/pause.png';
 
+
 const spotify = new SpotifyWebApi();
 
 // global variable for interval
@@ -351,14 +352,16 @@ class Episode extends Component {
         <div className="displayEpisodeData">
           <div className="episodeDataContainer">
             <div className="aboutDescriptionWrapper">
-              <h3 style={{marginBottom: "0"}}>About this Episode</h3>
+              <div className="likesContainer">
+                <h3 style={{marginBottom: "0"}}>About this Episode</h3>
+                <Rate episodeId={this.props.data.id} userId={userId}/>
+              </div>
               <span 
                 style={{marginBottom: "30px"}}
                 className="subTitleText">
                 Hosted by {this.props.location.state.selectedShow.publisher}</span>
               <span className="subTitleText">{episode.description}</span>
             </div>
-            <Rate episodeId={this.props.data.id} userId={userId}/>
           </div>
           <div className="imageWrapper">
             <img 
@@ -368,7 +371,7 @@ class Episode extends Component {
           </div>
         </div>
         {playerCard}
-        <h3 style={{marginTop: "50px"}}>Comments</h3>
+        <h3 style={{marginTop: "30px"}}>Comments</h3>
         <div className="commentAndEpisodesGrid">
           <CommentList 
             episodeId={this.props.data.id} 

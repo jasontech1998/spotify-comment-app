@@ -109,15 +109,14 @@ class CommentList extends Component {
                         daysAgo = <h5 id="darkerColor">Today</h5>
                     }
                     return (
-                        <div className="singleComment" key= {comments + index} id={comments.episodeId}>
+                        <div
+                            onClick={() => this.props.onClick(comments.time)} 
+                            className="singleComment" key= {comments + index} id={comments.episodeId}>
                             <div className="commentHeadingWrapper">
                                 <div className="nameTimeWrapper">
                                     <h5 id="commenter">{comments.userName} </h5>
                                     <h5 id="darkerColor"> at </h5>
-                                    <button 
-                                        onClick={() => this.props.onClick(comments.time)}
-                                        id="goToTimeBtn"><h5>{commentTime}</h5>
-                                    </button>
+                                    <h5>{commentTime}</h5>
                                 </div>
                                 {daysAgo}
                             </div>
