@@ -28,13 +28,7 @@
     border-radius: 0.5rem;
     padding: 7px 12px;
     font-weight: 600;
-}
-
-#addCommentBtn{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: white;
-    font-family: 'Noto Sans JP', sans-serif;
+    width: 70px;
 }
 
 .playTimeWrapper{
@@ -42,9 +36,6 @@
     align-items: center;
 }
 
-#addCommentBtn:hover {
-    color: #34c76c;
-}
 
 /* MOBILE */
 @media only screen
@@ -56,8 +47,7 @@
         display: block;
     }
     .playTimeWrapper{
-        display: flex;
-        justify-content: center;
-        margin-bottom: 5px;
+        margin-top: 10px;
+        justify-content: space-between;
     }
 }
