@@ -4,7 +4,6 @@ import './Rate.css';
 import axios from '../../axios-instance';
 
 
-
 class Rate extends Component {
     state= {
         likes: null,
@@ -121,7 +120,7 @@ class Rate extends Component {
                 <path d="M36.6422 0.154876C35.8475 -0.206731 34.8748 0.0857738 34.4758 0.814681L32.8613 3.76515C32.4624 4.49416 32.7857 5.38012 33.5834 5.74467C34.3889 6.1102 35.3526 5.80847 35.7498 5.08486L37.3643 2.13439C37.7632 1.40538 37.4399 0.519329 36.6422 0.154876Z" fill="#8CC284"/>
                 <path d="M19.7752 8.8501H16.5462C15.6538 8.8501 14.9316 9.5099 14.9316 10.3254C14.9316 11.1408 15.6537 11.8007 16.5462 11.8007H19.7752C20.6675 11.8007 21.3897 11.1409 21.3897 10.3254C21.3897 9.5099 20.6675 8.8501 19.7752 8.8501Z" fill="#8CC284"/>
                 </svg>
-                <span className="tooltipText">Remove like</span>
+                    <span className="tooltipText">Remove like</span>
                 </div>
             )
         }
