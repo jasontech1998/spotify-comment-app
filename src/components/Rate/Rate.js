@@ -26,6 +26,33 @@ class Rate extends Component {
         })
     }
 
+    componentDidUpdate = (prevProps) => {
+        // if different props, user clicked on new episode so update ratings
+        if (this.props.episodeId !== prevProps.episodeId) {
+            axios.get("/episodes/"+ this.props.episodeId +"/rating.json").then(response => {
+                if (response.data === null) {
+                    console.log('not rated yet')
+                    this.setState({
+                        likes: 0,
+                        ratings: {
+                            likes: 0,
+                            ratedUsers: null
+                        }
+                    })
+                } else {
+                    console.log('has been rated')
+                    this.setState({
+                        ratings: response.data,
+                        likes: response.data.likes,
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        }
+    }
+
     likeHandler = () => {
         let ratings = null;
         let ratedUsers = undefined;

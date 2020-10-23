@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .playerContainer {
@@ -27,6 +27,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 14px;
+    margin-bottom: 30px;
 }
 
 .commentAndEpisodesGrid {
@@ -40,14 +41,16 @@
     background-color: #292D39;
     border-radius: 8px;
     padding: 0px 10px 10px 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+.miniEpisodesListWrapper {
     max-height: 800px;
     overflow-x: overlay;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
 }
 
 .miniEpisodeWrapper {
     padding: 10px;
-    margin: 10px;
+    margin: 0px 10px 10px;
     background-color: #363943;
     border-radius: 0.5rem;
     display: flex;
@@ -58,17 +61,38 @@
     margin-left: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 #playerButton{
-    background: none;
+    margin: 0 10px 0;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding: 16px;
+    border-radius: 90px;
+    background-color: #7E66D8;
+    text-align: left;
     border: none;
-    margin: 0 0px 0;
 }
 
-#pausePlay{
-    color: #7E66D8;
+button:active{
+    box-shadow: inset 2px 2px 5px #292D39 , -2px -2px 11px  #292D39;
+}
+
+input:focus,
+select:focus,
+button:focus {
+    outline: 0;
+}
+
+button img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 42%;
+    height: 42%;
 }
 
 
@@ -92,6 +116,28 @@
     padding-bottom: 5px;
 }
 
+/* progress bar styling */
+
+.range {
+    -webkit-appearance: none;
+    background: #111;
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: -407px 0 0 400px #7E66D8;
+}
+
+
 /* MOBILE */
 @media only screen
   and (max-device-width: 600px) {
@@ -114,5 +160,8 @@
     }
     .miniEpisodesList {
         margin-top: 60px;
+    }
+    #playerButton {
+        margin: 0;
     }
 }

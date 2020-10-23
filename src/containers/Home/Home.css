@@ -36,8 +36,9 @@ button, input {
 
 #bio{
     text-align: center;
-    color: #FFFFFF;
-    margin-bottom: 30px;
+    color: #868895;
+    margin: 20px 0;
+    font-size: 16px;
 }
 
 #logInBtn{
@@ -69,4 +70,5 @@ span, p {
 a, a:hover {
     text-decoration: none;
 }
+
 

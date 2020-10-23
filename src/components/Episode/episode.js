@@ -7,6 +7,10 @@ import AddComment from '../AddComment/AddComment';
 import CommentList from '../CommentList/CommentList';
 import Rate from '../Rate/Rate';
 import SpotifyWebApi from 'spotify-web-api-js';
+
+import play from '../Images/play.png';
+import pause from '../Images/pause.png';
+
 const spotify = new SpotifyWebApi();
 
 // global variable for interval
@@ -271,13 +275,13 @@ class Episode extends Component {
     // start as playing icon
     let playOrPause = (
       <button id="playerButton" onClick={this.onPlayClick}>
-        <i className="fas fa-play-circle fa-2x" id="pausePlay"></i>
+        <img src={play} alt="playButton"></img>
       </button>
     );
     if(this.state.playing) {
       playOrPause = (
         <button id="playerButton" onClick={this.onPauseClick}>
-          <i className="fas fa-pause-circle fa-2x" id="pausePlay"></i>
+          <img src={pause} alt="pauseButton"></img>
         </button>
       );
     }
@@ -324,13 +328,14 @@ class Episode extends Component {
         </div>
         <div className="playerContainer">
           <div className="episodeNameDateWrapper">
-            <h3>{episode.name}</h3>
+            <h3 style={{marginBottom: "0px"}}>{episode.name}</h3>
             <div>
               <span style={{color: "#868895"}}>{episode.release_date}</span>
             </div>
           </div>
           <div className="progressBarWrapper">
             <input 
+              class="range"
               id="progessBar"
               style={{width: "100%"}}
               onChange={(e) => this.dragHandler(e)}
@@ -355,7 +360,9 @@ class Episode extends Component {
             <div className="stickyName">
               <h3 style={{margin: "10px"}}>More Episodes</h3>
             </div>
-            {showEpisodesList}
+            <div className="miniEpisodesListWrapper">
+              {showEpisodesList}
+            </div>
           </div>
         </div>
       </div>

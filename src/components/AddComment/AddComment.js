@@ -71,7 +71,9 @@ class AddComment extends Component {
             </div>
             <div className="playTimeWrapper">
               {this.props.playButton}
-              {timeChoice}
+              <div className="timeChoiceWrapper">
+                {timeChoice}
+              </div>
             </div>
           </div>
         </div>
