@@ -241,6 +241,7 @@ class Episode extends Component {
     let userName = null;
     let userId = null;
     let showEpisodesList = null;
+    let accountType = null;
     const episode = this.props.data;
     
     // create mini episodesList
@@ -303,30 +304,12 @@ class Episode extends Component {
     // check to see if state has userInfo
     if (this.state.userInfo) {
       userName = this.state.userInfo.display_name;
-      userId = this.state.userInfo.id
+      userId = this.state.userInfo.id;
+      accountType = this.state.userInfo.product;
     }
-    return (
-      <div>
-        <div className="displayEpisodeData">
-          <div className="episodeDataContainer">
-            <div className="aboutDescriptionWrapper">
-              <h3 style={{marginBottom: "0"}}>About this Episode</h3>
-              <span 
-                style={{marginBottom: "30px"}}
-                className="subTitleText">
-                Hosted by {this.props.location.state.selectedShow.publisher}</span>
-              <span className="subTitleText">{episode.description}</span>
-            </div>
-            <Rate episodeId={this.props.data.id} userId={userId}/>
-          </div>
-          <div className="imageWrapper">
-            <img 
-              id="showImage"
-              alt="showImage"
-              src={episode.images[0].url}/>
-          </div>
-        </div>
-        <div className="playerContainer">
+    // If user is not premium, do not allow to listen
+    let playerCard = (
+      <div className="playerContainer">
           <div className="episodeNameDateWrapper">
             <h3 style={{marginBottom: "0px"}}>{episode.name}</h3>
             <div>
@@ -351,6 +334,36 @@ class Episode extends Component {
             time={this.state.position} 
             episodeId={this.props.data.id}/>
         </div>
+    );
+    if(accountType !== "premium") {
+      playerCard = (
+        <div className="playerContainer">
+            <center><h3>Sorry! You must be a premium user to listen and comment.</h3></center>
+        </div>
+      );
+    }
+    return (
+      <div>
+        <div className="displayEpisodeData">
+          <div className="episodeDataContainer">
+            <div className="aboutDescriptionWrapper">
+              <h3 style={{marginBottom: "0"}}>About this Episode</h3>
+              <span 
+                style={{marginBottom: "30px"}}
+                className="subTitleText">
+                Hosted by {this.props.location.state.selectedShow.publisher}</span>
+              <span className="subTitleText">{episode.description}</span>
+            </div>
+            <Rate episodeId={this.props.data.id} userId={userId}/>
+          </div>
+          <div className="imageWrapper">
+            <img 
+              id="showImage"
+              alt="showImage"
+              src={episode.images[0].url}/>
+          </div>
+        </div>
+        {playerCard}
         <h3 style={{marginTop: "50px"}}>Comments</h3>
         <div className="commentAndEpisodesGrid">
           <CommentList 

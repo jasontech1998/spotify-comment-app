@@ -26,12 +26,15 @@ button, input {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFFFFF;
+    color:  #7E66D8;
     font-size: 300%;
 }
 
 #appName{
     font-size: 110%;
+    background: -webkit-linear-gradient(#eee,#bdbdbd);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
 }
 
 #bio{
