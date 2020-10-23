@@ -5,6 +5,7 @@ import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
 import './searchResults.css';
 import Navbar from '../../components/Navbar/Navbar';
 import { withRouter } from 'react-router-dom';
+import Head from '../../components/Head/head';
 
 import SpotifyWebApi from 'spotify-web-api-js';
 const spotify = new SpotifyWebApi();
@@ -93,7 +94,9 @@ class SearchResults extends Component {
                 onClick={() => this.onClickShowHandler(show)} 
                 className="showWrapper" key={show.id}>
                <div className="imageWrapper">
-                <img src={show.images[2].url} alt="showPic"/>
+                <img 
+                  style={{borderRadius: "0.5rem"}}
+                  src={show.images[2].url} alt="showPic"/>
                </div>
                <div className="showTitleContainer">
                 <div className="showTitleWrapper">
@@ -114,6 +117,7 @@ class SearchResults extends Component {
 
     return (
       <div>
+        <Head title="Search Results"/>
         <Navbar token={this.state.token}/>
         <div className="searchResultsContainer">
           <h1 className="searchResultsTitle">Search Results</h1>

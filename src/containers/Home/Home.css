@@ -53,6 +53,22 @@ button, input {
     color: #FFFFFF;
 }
 
+.btn {
+    background-color: #34c76c;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 17px 26px;
+    border-radius: 500px;
+    line-height: 1;
+    letter-spacing: 2px;
+    border-width: 0;
+}
+
+.loginButton:hover {
+    background-color: #1ED760;
+}
+
 h1, h3 {
     color: #FFFFFF;
     font-family: 'Inter', sans-serif;
@@ -67,11 +83,6 @@ h5 {
 span, p {
     color: #FFFFFF;
 }
-
-.btn {
-    background-color: #34c76c;
-}
-
 a, a:hover {
     text-decoration: none;
 }

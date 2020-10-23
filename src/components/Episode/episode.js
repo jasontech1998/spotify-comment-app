@@ -10,7 +10,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 
 import play from '../Images/play.png';
 import pause from '../Images/pause.png';
-
+import Head from '../../components/Head/head';
 
 const spotify = new SpotifyWebApi();
 
@@ -264,7 +264,7 @@ class Episode extends Component {
                 <div>
                   <img
                     alt="showImage"
-                    src={episode.images[0].url} style={{width: "100px", height: "100px"}}/>
+                    src={episode.images[0].url} style={{width: "100px", height: "100px", borderRadius: "0.5rem"}}/>
                 </div>
                 <div className="miniEpisodeData">
                   <h5 style={{color: "#FFFFFF"}}>{episode.name}</h5>
@@ -349,6 +349,7 @@ class Episode extends Component {
     }
     return (
       <div>
+        <Head title={this.state.trackName}/>
         <div className="displayEpisodeData">
           <div className="episodeDataContainer">
             <div className="aboutDescriptionWrapper">

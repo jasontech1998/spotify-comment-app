@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './Home.css';
 import {loginUrl} from '../../spotify';
 import Search from '../../components/Search/Search';
+import Head from '../../components/Head/head';
 
 import Lottie from 'react-lottie';
 import animationData from '../../components/Images/audiowave';
@@ -21,7 +22,7 @@ class Home extends Component {
     };
     let signOrSearch = (
       <div id="logInBtn">
-        <button type="button" className="btn"><a href={loginUrl} id="logBtn">Login with Spotify </a></button>
+        <button type="button" className="btn loginButton"><a href={loginUrl} id="logBtn">LOGIN WITH SPOTIFY</a></button>
       </div>
     );
     // if token is not null, render search bar
@@ -33,6 +34,7 @@ class Home extends Component {
 
     return (
       <div className="Home">
+        <Head />
         <div className="appTitle">
           <i className="fab fa-spotify"></i>
           <h1 id="appName" style={{marginBottom: "0px", marginLeft: "8px"}}>PodSpot</h1>

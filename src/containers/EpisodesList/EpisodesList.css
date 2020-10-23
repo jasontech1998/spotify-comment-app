@@ -24,14 +24,12 @@
 .episodeDataWrapper {
   margin-left: 30px;
   display: flex;
-  flex-direction: column;
+  flex-direction: flex;
   flex-grow: 1;
   justify-content: space-between;
 }
 
-.episodeTitle {
-  margin-bottom: 30px;
-}
+
 
 .titleDateWrapper {
   display: flex;
@@ -43,7 +41,8 @@
   display: flex;
 }
 
-.aboutDescriptionWrapper {
+.aboutDescriptionWrapper,
+.aboutEpisodeWrapper {
   display: flex;
   flex-direction: column;
 }
@@ -58,6 +57,13 @@
 .aboutEpisodeWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  margin-right: 30px;
+}
+
+.episodeDate {
+  text-align: end;
+  width: 200px;
 }
 
 .subTitleText {

@@ -57,12 +57,17 @@
 }
 
 .miniEpisodeWrapper {
-    padding: 10px;
+    padding: 14px;
     margin: 0px 10px 10px;
     background-color: #363943;
     border-radius: 0.5rem;
     display: flex;
     cursor: pointer;
+    transition: background-color .3s ease-in-out;
+}
+
+.miniEpisodeWrapper:hover {
+    background-color: #282828;
 }
 
 .miniEpisodeData {

@@ -4,6 +4,7 @@ import './EpisodesList.css';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Episode from '../../components/Episode/episode';
 import Navbar from '../../components/Navbar/Navbar';
+import Head from '../../components/Head/head';
 
 
 const spotify = new SpotifyWebApi();
@@ -65,6 +66,12 @@ class EpisodesList extends Component {
         <Auxiliary>
           {this.props.location.state.episodesResult.map((episode) => {
             let durationTime = this.millisecondsToMinutesConverter(episode.duration_ms);
+            // if description is over 200 chars, trim it
+            const length = 200;
+            let trimDescription = 
+              episode.description.length > length ?
+              episode.description.substring(0, length) + "..." :
+              episode.description;
             return (
               <div
                 onClick={() => this.onClickEpisodeHandler(episode.id)} 
@@ -72,21 +79,24 @@ class EpisodesList extends Component {
                 key={episode.id}>
                 <div className="imageWrapper">
                   <img
+                    style={{borderRadius: "0.5rem"}}
                     id="episodeImage"
                     alt="episodesImage" 
                     src={episode.images[0].url}/>
                 </div>
                 <div className="episodeDataWrapper">
-                  <div className="episodeTitle">
-                    <div className="titleDateWrapper">
-                      <h3 style={{fontSize: "22px", marginBottom: "0"}}>{episode.name}</h3>
-                      <span style={{fontSize: "14px", color: "#868895"}}>{episode.release_date}</span>
-                    </div>
-                    <span style={{fontSize: "14px", color: "#868895"}}>{durationTime}</span>
-                  </div>
                   <div className="aboutEpisodeWrapper">
-                    <span>About this Episode</span>
-                    <span style={{fontSize: "14px", color: "#868895"}}>{episode.description}</span>
+                    <div>
+                      <h3 style={{fontSize: "22px", marginBottom: "0"}}>{episode.name}</h3>   
+                      <span style={{fontSize: "14px", color: "#868895"}}>{durationTime}</span>
+                    </div>
+                    <div className="aboutEpisodeWrapper">
+                      <span>About this Episode</span>
+                      <span style={{fontSize: "14px", color: "#868895"}}>{trimDescription}</span>
+                    </div>
+                  </div>
+                  <div className="episodeDate">
+                    <span style={{fontSize: "14px", color: "#868895"}}>{episode.release_date}</span>
                   </div>
                 </div>
               </div>
@@ -110,6 +120,7 @@ class EpisodesList extends Component {
 
     return (
       <div>
+        <Head title={this.props.location.state.selectedShow.name}/>
         <Navbar token={this.props.location.state.token} />
         <div className="episodesListWrapper">
           <div className="selectedShow">
