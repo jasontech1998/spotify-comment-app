@@ -17,6 +17,7 @@
 
 #thumbup .tooltipText {
     visibility: hidden;
+    opacity: 0;
     font-size: 14px;
     padding: 8px;
     text-align:center;
@@ -28,11 +29,15 @@
     left: 50%;
     margin-left: -70px;
     border-radius: 0.25rem;
+    cursor: initial;
+    transition: opacity .3s ease-in-out;
 }
 
 #thumbup:hover .tooltipText {
     visibility: visible;
+    opacity: 1;
 }
+
 
 #likedThumb{
     color:#8CC284;
