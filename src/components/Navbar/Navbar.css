@@ -30,9 +30,11 @@
   and (max-device-width: 600px) {
    .appLogo {
       justify-content: center;
+      margin-bottom: 10px;
    }
   .Navbar{
      display: block;
-     margin-bottom: 10px;
+     margin-bottom: 0px;
+     padding-bottom: 0px;
   }
 }

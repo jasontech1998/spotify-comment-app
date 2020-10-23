@@ -348,19 +348,21 @@ class Episode extends Component {
       );
     }
     return (
-      <div>
+      <div className="Episode">
         <Head title={this.state.trackName}/>
         <div className="displayEpisodeData">
           <div className="episodeDataContainer">
             <div className="aboutDescriptionWrapper">
               <div className="likesContainer">
-                <h3 style={{marginBottom: "0"}}>About this Episode</h3>
+                <div className="aboutAndHost">
+                  <h3 style={{marginBottom: "0"}}>About this Episode</h3>
+                  <span 
+                  style={{marginBottom: "30px"}}
+                  className="subTitleText">
+                  Hosted by {this.props.location.state.selectedShow.publisher}</span>
+                </div>
                 <Rate episodeId={this.props.data.id} userId={userId}/>
               </div>
-              <span 
-                style={{marginBottom: "30px"}}
-                className="subTitleText">
-                Hosted by {this.props.location.state.selectedShow.publisher}</span>
               <span className="subTitleText">{episode.description}</span>
             </div>
           </div>

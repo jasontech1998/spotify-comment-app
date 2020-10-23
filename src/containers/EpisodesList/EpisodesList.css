@@ -61,6 +61,14 @@
   margin-right: 30px;
 }
 
+.aboutEpisodeWrapper2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-right: 30px;
+}
+
+
 .episodeDate {
   text-align: end;
   width: 200px;
@@ -107,8 +115,18 @@
     }
     .episodeDataWrapper {
       margin-left: 10px;
+      display: block;
     }
     .episodeTitle {
       margin-bottom: 5px;
+    }
+    .episodeListGrid{
+      grid-template-columns: 100%;
+    }
+    .episodeDate {
+      text-align: left;
+    }
+    .aboutEpisodeWrapper2{
+      display: none;
     }
   }

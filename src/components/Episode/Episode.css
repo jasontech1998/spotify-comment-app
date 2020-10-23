@@ -43,6 +43,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;;
+    margin-bottom: 25px;
 }
 
 .miniEpisodesList {
@@ -161,7 +162,7 @@ button img {
         display: block;
     }
     .episodeDataContainer{
-        margin-right: 0px;
+        margin-left: 0px;
         padding: 15px 15px 15px 15px;
     }
     #showImage{
@@ -176,5 +177,12 @@ button img {
     }
     #playerButton {
         margin: 0;
+    }
+    .likesContainer {
+        display: block;
+        margin-bottom: 15px;
+    }
+    #progressBar{
+        margin-top: 50px;
     }
 }
