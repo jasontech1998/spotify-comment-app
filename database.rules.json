@@ -1,6 +1,6 @@
 {
   "rules": {
-    "comments": {
+    "episodes": {
       ".read": "true",
       ".write": "true",
       ".indexOn": [
