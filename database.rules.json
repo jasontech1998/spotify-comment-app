@@ -1,11 +1,6 @@
 {
   "rules": {
-    "episodes": {
-      ".read": "true",
-      ".write": "true",
-      ".indexOn": [
-        "episodeId"
-      ]
-    }
+    ".read": "auth != null",
+    ".write": "auth != null"
   }
 }
