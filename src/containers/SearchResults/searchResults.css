@@ -1,5 +1,5 @@
 .searchResultsContainer {
-  padding: 32px 200px;
+  padding: 60px 100px 0;
 }
 
 .searchResultsGrid {
@@ -18,6 +18,11 @@
   border-radius: 8px;
   cursor: pointer;
   padding: 10px;
+}
+
+.searchResultImage {
+  width: 100px;
+  height: 100px;
 }
 
 .showWrapper:hover {

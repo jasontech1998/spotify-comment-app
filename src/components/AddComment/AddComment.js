@@ -4,6 +4,7 @@ import './AddComment.css';
 import axios from '../../axios-instance';
 
 class AddComment extends Component {
+
     state = {
         comment: ""
     }

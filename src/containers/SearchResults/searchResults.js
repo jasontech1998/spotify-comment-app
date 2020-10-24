@@ -94,9 +94,7 @@ class SearchResults extends Component {
                 onClick={() => this.onClickShowHandler(show)} 
                 className="showWrapper" key={show.id}>
                <div className="imageWrapper">
-                <img 
-                  style={{borderRadius: "0.5rem"}}
-                  src={show.images[2].url} alt="showPic"/>
+                <img className="searchResultImage" src={show.images[2].url} alt="showPic"/>
                </div>
                <div className="showTitleContainer">
                 <div className="showTitleWrapper">

@@ -31,22 +31,32 @@ button, input {
 }
 
 #appName{
-    font-size: 110%;
+    font-size: 64px;
+    font-family: 'Poppins', sans-serif;
     background: #FFFFFF;
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
+    height: 96px;
+    width: 274px;
+}
+
+#AppLogo{
+    margin-bottom: 19px;
 }
 
 #bio{
     text-align: center;
     color: #868895;
-    margin-top: 20px;
+    margin-top: 24px;
     font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 0;
 }
 
 #logInBtn{
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
 #logBtn{
@@ -72,6 +82,7 @@ button, input {
 h1, h3 {
     color: #FFFFFF;
     font-family: 'Inter', sans-serif;
+    font-size: 32px;
     font-weight: 700;
     margin-bottom: 0;
 }
