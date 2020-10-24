@@ -4,6 +4,11 @@
    justify-content: space-between;
 }
 
+.navLogo {
+   width: 20px;
+   height: 20px;
+}
+
 .appLogo {
    cursor: pointer;
    display: flex;
@@ -12,10 +17,11 @@
 }
 
 #navbarName{
-   background: #FFFFFF;
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-   font-size: 32px;
+   color: #FFFFFF;
+   font-family: 'Poppins', sans-serif;
+   font-weight: 700;
+   font-size: 24px;
+   line-height: 36px;
 }
 
 #logo{

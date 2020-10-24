@@ -2,12 +2,24 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
+    padding-bottom: 84px;
 }
 .episodeDataContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin-left: 60px;
+}
+
+.subTitleText1{
+    color: #868895;
+}
+
+.subTitleText2{
+    color: #868895;
+    line-height: 24px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .episodeNameDateWrapper {
@@ -17,40 +29,51 @@
     margin-bottom: 40px;
 }
 
+#epDate{
+    color: #868895;
+    font-weight: 600;
+    font-size: 20px;
+}
+
 .playerContainer {
     background-color: #292D39;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     border-radius: 8px;
-    padding: 24px 30px;
-    margin-top: 50px;
+    padding: 36px 48px;
 }
 
 .trackTimeWrapper {
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
-    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    padding-top: 8px;
 }
 
 .commentAndEpisodesGrid {
     display: grid;
-    grid-template-columns: 60% 40%;
-    gap: 1em;
-    margin-top: 30px;
+    grid-template-columns: 6fr 4fr;
+    gap: 53px;
+    margin-top: 48px;
 }
 
 .likesContainer {
     display: flex;
     justify-content: space-between;
-    align-items: center;;
-    margin-bottom: 25px;
+    align-items: center;
+    margin-bottom: 36px;
+}
+
+.form-control {
+    padding: 12px 20px;
 }
 
 .miniEpisodesList {
+    padding-right: 8px;
     background-color: #292D39;
     border-radius: 8px;
-    padding: 0px 10px 10px 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 .miniEpisodesListWrapper {
     max-height: 800px;
@@ -58,35 +81,43 @@
 }
 
 .miniEpisodeWrapper {
-    padding: 14px;
-    margin: 0px 10px 10px;
+    padding: 17px 24px 17px 16px;
+    margin: 0px 32px 16px 24px;
     background-color: #363943;
-    border-radius: 0.5rem;
+    border-radius: 5px;
     display: flex;
     cursor: pointer;
     transition: background-color .3s ease-in-out;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
 .miniEpisodeWrapper:hover {
     background-color: #282828;
 }
 
+#moreEp{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+}
+
+
 .miniEpisodeData {
     margin-left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
 }
 
 #playerButton{
     margin: 0 10px 0;
     position: relative;
-    width: 40px;
-    height: 40px;
-    padding: 16px;
-    border-radius: 90px;
-    background-color: #7E66D8;
-    text-align: left;
+    width: 50px;
+    height: 50px;
+    margin: 0px 24px 0px 24px;
     border: none;
 }
 
@@ -117,8 +148,8 @@ button img {
 
 
 #showImage{
-    width: 230px;
-    height: 230px;
+    width: 240px;
+    height: 240px;
 }
 
 .stickyName{
@@ -126,31 +157,45 @@ button img {
     position: sticky;
     top: 0;
     background-color: #292D39;
-    padding-top: 15px;
-    padding-bottom: 5px;
+    margin: 36px 0px 24px 32px;
 }
 
 /* progress bar styling */
 
 .range {
     -webkit-appearance: none;
-    background: #111;
+    background: #868895;
     outline: none;
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
+    height: 24px;
 }
 
 .range::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 17px;
-    height: 17px;
+    width: 24px;
+    height: 24px;
+    z-index: 100;
     border-radius: 50%;
     background: #ffffff;
     cursor: pointer;
     box-shadow: -1000px 0 0 990px #7E66D8;
 }
 
+#min{
+    color: rgb(134, 136, 149);
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#date{
+    color: rgb(134, 136, 149);
+    font-size: 16px;
+    font-weight: 600;
+}
 
 /* MOBILE */
 @media only screen

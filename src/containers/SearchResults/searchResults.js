@@ -22,8 +22,8 @@ class SearchResults extends Component {
     // if available, get data from spotify api
     if (token && searchInput) {
       spotify.setAccessToken(token);
-      // search shows from user input and limit to 5
-      spotify.searchShows(searchInput, {limit: 6})
+      // search shows from user input and limit to 8
+      spotify.searchShows(searchInput, {limit: 8})
         .then(data => {
           // set search results of shows and token into state
           this.setState({

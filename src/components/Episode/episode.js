@@ -261,15 +261,15 @@ class Episode extends Component {
                 key={episode.id} 
                 onClick={() => this.props.clickedMini(episode)}
                 className="miniEpisodeWrapper">
-                <div>
+                <div style={{display: "flex", alignItems: "center"}}>
                   <img
                     alt="showImage"
-                    src={episode.images[0].url} style={{width: "100px", height: "100px", borderRadius: "0.5rem"}}/>
+                    src={episode.images[0].url} style={{width: "100px", height: "100px"}}/>
                 </div>
                 <div className="miniEpisodeData">
-                  <h5 style={{color: "#FFFFFF"}}>{episode.name}</h5>
-                  <h5 style={{color: "#868895"}}>{duration} minutes</h5>
-                  <h5 style={{color: "#868895"}}>{episode.release_date}</h5>
+                  <span style={{color: "#FFFFFF"}}>{episode.name}</span>
+                  <span id="min" style={{color: "#868895"}}>{duration} minutes</span>
+                  <span id="date" style={{color: "#868895"}}>{episode.release_date}</span>
                 </div>
               </div>
             )
@@ -280,15 +280,22 @@ class Episode extends Component {
 
     // start as playing icon
     let playOrPause = (
-      <button id="playerButton" onClick={this.onPlayClick}>
-        <img src={play} alt="playButton"></img>
-      </button>
+      <div id="playerButton" onClick={this.onPlayClick}>
+        <svg width="50" height="50" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.95431 31.0457 0 20 0C8.95431 0 0 8.95431 0 20C0 31.0457 8.95431 40 20 40Z" fill="#7E66D8"/>
+      <path d="M29.5583 18.6088C30.5567 19.2676 30.5567 20.7324 29.5583 21.3911L16.7512 29.8416C15.6431 30.5728 14.1666 29.7781 14.1666 28.4505V11.5495C14.1666 10.2219 15.6431 9.42716 16.7512 10.1583L29.5583 18.6088Z" fill="white"/>
+      </svg>
+      </div>
     );
     if(this.state.playing) {
       playOrPause = (
-        <button id="playerButton" onClick={this.onPauseClick}>
-          <img src={pause} alt="pauseButton"></img>
-        </button>
+        <div id="playerButton" onClick={this.onPauseClick}>  
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z" fill="#7E66D8"/>
+          <rect x="16.8" y="13.2001" width="4.8" height="21.6" rx="2.4" fill="white"/>
+          <rect x="26.4001" y="13.2001" width="4.8" height="21.6" rx="2.4" fill="white"/>
+          </svg>
+        </div>
       );
     }
 
@@ -318,7 +325,7 @@ class Episode extends Component {
           <div className="episodeNameDateWrapper">
             <h3 style={{marginBottom: "0px"}}>{episode.name}</h3>
             <div>
-              <span style={{color: "#868895"}}>{episode.release_date}</span>
+              <span id="epDate" style={{color: "#868895"}}>{episode.release_date}</span>
             </div>
           </div>
           <div className="progressBarWrapper">
@@ -348,7 +355,7 @@ class Episode extends Component {
       );
     }
     return (
-      <div className="Episode">
+      <div className="Episode" style={{marginTop: "-80px", marginLeft: "-19px", marginRight: "-19px"}}>
         <Head title={this.state.trackName}/>
         <div className="displayEpisodeData">
           <div className="episodeDataContainer">
@@ -358,12 +365,12 @@ class Episode extends Component {
                   <h3 style={{marginBottom: "0"}}>About this Episode</h3>
                   <span 
                   style={{marginBottom: "30px"}}
-                  className="subTitleText">
+                  className="subTitleText1">
                   Hosted by {this.props.location.state.selectedShow.publisher}</span>
                 </div>
                 <Rate episodeId={this.props.data.id} userId={userId}/>
               </div>
-              <span className="subTitleText">{episode.description}</span>
+              <span className="subTitleText2">{episode.description}</span>
             </div>
           </div>
           <div className="imageWrapper">
@@ -374,14 +381,14 @@ class Episode extends Component {
           </div>
         </div>
         {playerCard}
-        <h3 style={{marginTop: "30px"}}>Comments</h3>
+        <h3 style={{marginTop: "80px"}}>Comments</h3>
         <div className="commentAndEpisodesGrid">
           <CommentList 
             episodeId={this.props.data.id} 
             onClick={(timestamp) => this.clickTimeStampHandler(timestamp)}/>
           <div className="miniEpisodesList">
             <div className="stickyName">
-              <h3 style={{margin: "10px"}}>More Episodes</h3>
+              <span id="moreEp">More Episodes</span>
             </div>
             <div className="miniEpisodesListWrapper">
               {showEpisodesList}

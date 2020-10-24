@@ -7,7 +7,6 @@
   .searchContainer {
     width: 280px;
     height: 48px;
-    margin: auto;
   }
 
   form.search {
@@ -18,7 +17,7 @@
   }
 
   .searchSVG {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   
   /* Style the search field */

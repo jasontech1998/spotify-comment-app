@@ -48,16 +48,16 @@ class EpisodesList extends Component {
             <img 
               id="showImage"
               alt="showImage"
-              src={showData.images[0].url} style={{width: "230px", height: "230px"}}/>
+              src={showData.images[0].url} style={{width: "216px", height: "216px"}}/>
           </div>
           <div className="showDataWrapper">
             <div>
               <h3 className="podcastName">{showData.name}</h3>
-              <span className="subTitleText">Hosted by {showData.publisher}</span>
+              <span className="subTitleText1">Hosted by {showData.publisher}</span>
             </div>
             <div className="aboutDescriptionWrapper">
-              <span>About</span>
-              <span className="subTitleText">{showData.description}</span>
+              <span className="about">About</span>
+              <span className="subTitleText2">{showData.description}</span>
             </div>
           </div>
         </Auxiliary>
@@ -67,7 +67,7 @@ class EpisodesList extends Component {
           {this.props.location.state.episodesResult.map((episode) => {
             let durationTime = this.millisecondsToMinutesConverter(episode.duration_ms);
             // if description is over 200 chars, trim it
-            const length = 200;
+            const length = 153;
             let trimDescription = 
               episode.description.length > length ?
               episode.description.substring(0, length) + "..." :
@@ -79,7 +79,6 @@ class EpisodesList extends Component {
                 key={episode.id}>
                 <div className="imageWrapper">
                   <img
-                    style={{borderRadius: "0.5rem"}}
                     id="episodeImage"
                     alt="episodesImage" 
                     src={episode.images[0].url}/>
@@ -90,15 +89,15 @@ class EpisodesList extends Component {
                       <h3 className="episodeListName">
                         {episode.name}
                       </h3>   
-                      <span style={{fontSize: "14px", color: "#868895"}}>{durationTime}</span>
+                      <span className="episodeMinutes">{durationTime}</span>
                     </div>
                     <div className="aboutEpisodeWrapper2">
-                      <span>About this Episode</span>
-                      <span style={{fontSize: "14px", color: "#868895"}}>{trimDescription}</span>
+                      <span className="aboutEp">About this Episode</span>
+                      <span className="epDescription">{trimDescription}</span>
                     </div>
                   </div>
                   <div className="episodeDate">
-                    <span style={{fontSize: "14px", color: "#868895"}}>{episode.release_date}</span>
+                    <span className="episodeMinutes" style={{fontSize: "16px"}}>{episode.release_date}</span>
                   </div>
                 </div>
               </div>
@@ -128,7 +127,7 @@ class EpisodesList extends Component {
           <div className="selectedShow">
             {showDisplay}
           </div>
-          <h1 style={{marginTop: "30px"}}>{episodesTitle}</h1>
+          <h1 className="episodesTitle">{episodesTitle}</h1>
           <div className="episodeListGrid">
             {showEpisodes}
           </div>

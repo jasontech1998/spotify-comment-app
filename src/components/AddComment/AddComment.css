@@ -1,5 +1,5 @@
 .AddComment{
-    margin-top: 15px;
+    margin-top: 36px;
 }
 #commentHeader{
     color: white;
@@ -26,6 +26,11 @@
 #commentForm{
     flex-grow:1;
     border-radius: 0.5rem;
+    height: 48px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #868895;
 }
 
 #ruler{
@@ -39,9 +44,11 @@
     background: #8CC284;
     border-radius: 0.5rem;
     padding: 7px 12px;
-    font-weight: 600;
-    width: 78px;
-    max-width: 78px;
+    font-weight: 700;
+    font-size: 24px;
+    width: 112px;
+    max-width: 112px;
+    height: 48px;
 }
 
 .playTimeWrapper{

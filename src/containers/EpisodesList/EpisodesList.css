@@ -1,35 +1,54 @@
 .podcastName {
   font-family: 'Poppins', sans-serif;
+  line-height: 48px;
 }
 
 .episodesListWrapper {
-  padding: 32px 200px;
+  padding: 84px 164px 84px;
 }
 .episodeWrapper {
   display: flex;
-  padding: 32px;
+  padding: 24px 48px 24px 32px;
   background-color: #363943;
-  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
   border-radius: 8px;
+  transition: background-color 0.5s ease-in-out;
   cursor: pointer;
 }
 
 .episodeListGrid {
   display: grid;
   grid-template-columns: repeat(1, auto); 
-  gap: 1em;
-  margin-top: 30px;
+  gap: 24px;
 }
 
 .episodeDataWrapper {
-  margin-left: 30px;
+  margin-left: 48px;
   display: flex;
   flex-direction: flex;
   flex-grow: 1;
   justify-content: space-between;
 }
 
+.episodeWrapper:hover {
+  background-color: #7E66D8;
+}
 
+
+.episodeWrapper:hover span {
+  color: #FFFFFF;
+}
+
+.episodeMinutes {
+  font-size: 14px;
+  color: #868895;
+  transition: color 0.5s ease-in-out;
+}
+.about{
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
 
 .titleDateWrapper {
   display: flex;
@@ -48,7 +67,7 @@
 }
 
 .showDataWrapper {
-  margin-left: 32px;
+  margin-left: 48px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -57,12 +76,21 @@
 .aboutEpisodeWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   margin-right: 30px;
 }
 .episodeListName {
-  font-size: 22px;
-  margin-bottom: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  padding-bottom: 4px;
+}
+
+.aboutEp {
+  padding-bottom: 8px;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 600;
 }
 
 .aboutEpisodeWrapper2 {
@@ -72,19 +100,47 @@
   margin-right: 30px;
 }
 
+.epDescription{
+  font-size: 16px;
+  color: #868895;
+  line-height: 19px;
+  transition: color 0.5s ease-in-out;
+}
 
 .episodeDate {
   text-align: end;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
   width: 200px;
+  padding-top: 24px;
 }
 
-.subTitleText {
+.subTitleText1 {
   color: #868895;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  padding-top: 4px;
+}
+
+.subTitleText2 {
+  color: #868895;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  padding-top: 8px;
 }
 
 #episodeImage{
-  width: 160px;
-  height: 160px;
+  width: 181px;
+  height: 181px;
+}
+
+.episodesTitle{
+  margin-top: 84px;
+  line-height: 39px;
+  padding-bottom: 34px;
 }
 
 

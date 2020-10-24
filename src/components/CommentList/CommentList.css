@@ -1,33 +1,54 @@
 .singleComment {
     background-color: #363943;
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     border-radius: 10px;
     color: white;
-    margin-bottom: 12px;
-    padding: 18px;
+    margin-bottom: 24px;
+    padding: 32px;
     cursor: pointer;
-    border: 2px solid #363943;
+    border: 4px solid #363943;
 }
 
 .singleComment:hover {
-    border: 2px solid #8CC284;
+    border: 4px solid #8CC284;
 }
 
+#commentTime{
+    color: #8CC284;
+}
 
 #darkerColor{
     color: #868895;
-    margin-left: 5px;
-    margin-right: 5px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+#at{
+    color: #868895;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    margin-left: 7px;
+    margin-right: 7px;
 }
 
 .nameTimeWrapper{
     display: flex;
     align-items: center;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 .commentHeadingWrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 24px;
+}
+
+#commenter{
+    line-height: 24px;
+    font-size: 20px;
+    font-weight: 500;
 }

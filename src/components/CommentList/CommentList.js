@@ -99,14 +99,14 @@ class CommentList extends Component {
                     let commentTime = this.millisecondsToMinutesConverter(comments.time);
                     let tempDaysAgo = new Date().getTime() - new Date(comments.date).getTime();
                     let days = Math.floor(tempDaysAgo / (1000 * 3600 * 24));
-                    let daysAgo = <h5 id="darkerColor">{days} days ago</h5>
+                    let daysAgo = <span id="darkerColor">{days} days ago</span>
                     // if 1 day ago
                     if (days === 1){
-                        daysAgo = <h5 id="darkerColor">{days} day ago</h5>
+                        daysAgo = <span id="darkerColor">{days} day ago</span>
                     }
                     // if 0 day ago
                     if (days === 0) {
-                        daysAgo = <h5 id="darkerColor">Today</h5>
+                        daysAgo = <span id="darkerColor">Today</span>
                     }
                     return (
                         <div
@@ -114,14 +114,14 @@ class CommentList extends Component {
                             className="singleComment" key= {comments + index} id={comments.episodeId}>
                             <div className="commentHeadingWrapper">
                                 <div className="nameTimeWrapper">
-                                    <h5 id="commenter">{comments.userName} </h5>
-                                    <h5 id="darkerColor"> at </h5>
-                                    <h5>{commentTime}</h5>
+                                    <span id="commenter">{comments.userName} </span>
+                                    <span id="at"> at </span>
+                                    <span id="commentTime">{commentTime}</span>
                                 </div>
                                 {daysAgo}
                             </div>
                             <div id="commenter">
-                                <h5>{comments.comment}</h5>
+                                <span>{comments.comment}</span>
                             </div>
                         </div>  
                     );
