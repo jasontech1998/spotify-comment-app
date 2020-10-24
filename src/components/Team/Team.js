@@ -33,22 +33,22 @@ class Team extends Component {
                             <img src={shaun} alt="" id="profilePic"></img>
                             <span id="memberName">Shaun Tan</span>
                             <span id="memberTitle">UX Designer</span>
-                            <a href="https://www.linkedin.com/in/shaun-tan-0b1a5713a/" id="memberLink" target="_blank">LinkedIn</a>
-                            <a href="https://tanshaun.com/work" id="memberLink" target="_blank">Portfolio</a>
+                            <a href="https://www.linkedin.com/in/shaun-tan-0b1a5713a/" id="memberLink" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            <a href="https://tanshaun.com/work" id="memberLink" target="_blank" rel="noopener noreferrer">Portfolio</a>
                         </div>
                         <div className="member">
                             <img src={jason} alt="" id="profilePic"></img>
                             <span id="memberName">Jason Yu</span>
                             <span id="memberTitle">Software Engineer</span>
-                            <a href="https://www.linkedin.com/in/jasonyu529/" id="memberLink" target="_blank">LinkedIn</a>
-                            <a href="https://jasontech1998.github.io/portfolio/" id="memberLink" target="_blank">Portfolio</a>
+                            <a href="https://www.linkedin.com/in/jasonyu529/" id="memberLink" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            <a href="https://jasontech1998.github.io/portfolio/" id="memberLink" target="_blank" rel="noopener noreferrer">Portfolio</a>
                         </div>
                         <div className="member">
                             <img src={johnny} alt="" id="profilePic"></img>
                             <span id="memberName">Johnny Nguyen</span>
                             <span id="memberTitle">Front End Developer</span>
-                            <a href="https://www.linkedin.com/in/johnny-nguyen-tech/" id="memberLink" target="_blank">LinkedIn</a>
-                            <a href="https://johnnynguyentech.github.io/" id="memberLink" target="_blank">Portfolio</a>
+                            <a href="https://www.linkedin.com/in/johnny-nguyen-tech/" id="memberLink" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            <a href="https://johnnynguyentech.github.io/" id="memberLink" target="_blank" rel="noopener noreferrer">Portfolio</a>
                         </div>
                     </div>
                 </Auxiliary>

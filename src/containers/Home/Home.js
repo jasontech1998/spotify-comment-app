@@ -32,8 +32,8 @@ class Home extends Component {
     let featureInfo = null;
     let disclaimer = (
       <div id="disclaimer">
-        <span id="disclaimNote"><i>Disclaimer:</i> Spotfy's Web Playback SDK does not support mobile devices and Safari.</span>
-        <a id="disclaimLink" href="https://developer.spotify.com/documentation/web-playback-sdk/"  target="_blank">Click here to learn more about Spotify's Web Playback SDK.</a>
+        <span id="disclaimNote">Disclaimer: Spotfy's Web Playback SDK does not support mobile devices and Safari.</span>
+        <a id="disclaimLink" href="https://developer.spotify.com/documentation/web-playback-sdk/"  target="_blank" rel="noopener noreferrer">Click here to learn more about Spotify's Web Playback SDK.</a>
       </div>
     );
     if (this.props.token !== null) {
