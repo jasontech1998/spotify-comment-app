@@ -1,6 +1,7 @@
 .podcastName {
   font-family: 'Poppins', sans-serif;
   line-height: 48px;
+  font-size: 30px;
 }
 
 .episodesListWrapper {
@@ -57,6 +58,7 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
+  padding-top: 32px;
 }
 
 .titleDateWrapper {
@@ -110,7 +112,7 @@
 }
 
 .epDescription{
-  font-size: 16px;
+  font-size: 14px;
   color: #868895;
   line-height: 19px;
   transition: color 0.5s ease-in-out;
@@ -121,7 +123,7 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
-  width: 200px;
+  width: 300px;
   padding-top: 24px;
 }
 
@@ -136,8 +138,8 @@
 .subTitleText2 {
   color: #868895;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   padding-top: 8px;
 }
 

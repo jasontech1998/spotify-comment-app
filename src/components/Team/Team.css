@@ -1,0 +1,65 @@
+.Team{
+    font-family: 'Inter', sans-serif;
+}
+
+.teamHeading{
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: none;
+    border: none;
+}
+
+.teamHeading:hover{
+    color: #7E66D8;
+}
+
+.teamWrapper{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.member{
+    background-color: #363943;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    margin: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+#profilePic{
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+#memberName{
+    display: block;
+}
+
+#memberTitle{
+    display: block;
+    color: #868895;
+    padding-bottom: 25px;
+}
+
+#memberLink{
+    display: block;
+    color: #7E66D8;
+}
+
+#arrow{
+    color: #868895;
+}
+
+/* MOBILE */
+@media only screen
+  and (max-device-width: 600px) {
+    .teamWrapper{
+        display: block;
+    }
+}

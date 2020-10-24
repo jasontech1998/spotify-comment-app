@@ -1,0 +1,40 @@
+.featureHeading{
+    text-align: center;
+    display: block;
+    margin-top: 100px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: none;
+    border: none;
+}
+
+.featureHeading:hover{
+    color: #7E66D8;
+}
+
+#arrow{
+    color: #868895;
+}
+
+.featuredEp{
+    background-color: #363943;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    margin: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.featureWrapper{
+    padding-bottom: 50px;
+    width: 60%;
+    margin: auto;
+}
+
+/* MOBILE */
+@media only screen
+  and (max-device-width: 600px) {
+    .featureWrapper{
+        width: 100%;
+    }
+}

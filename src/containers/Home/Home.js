@@ -4,6 +4,8 @@ import './Home.css';
 import {loginUrl} from '../../spotify';
 import Search from '../../components/Search/Search';
 import Head from '../../components/Head/head';
+import Team from '../../components/Team/Team';
+import Featured from '../../components/Featured/Featured';
 
 import Lottie from 'react-lottie';
 import animationData from '../../components/Images/audiowave';
@@ -26,11 +28,28 @@ class Home extends Component {
       </div>
     );
     // if token is not null, render search bar
+    let teamInfo= null;
+    let featureInfo = null;
+    let disclaimer = (
+      <div id="disclaimer">
+        <span id="disclaimNote"><i>Disclaimer:</i> Spotfy's Web Playback SDK does not support mobile devices and Safari.</span>
+        <a id="disclaimLink" href="https://developer.spotify.com/documentation/web-playback-sdk/"  target="_blank">Click here to learn more about Spotify's Web Playback SDK.</a>
+      </div>
+    );
     if (this.props.token !== null) {
       signOrSearch = (
           <Search token={this.props.token}/>
       );
+      teamInfo = (
+        <Team />
+      )
+      featureInfo = (
+        <Featured/>
+      )
+      disclaimer = null;
     }
+
+    
 
     return (
       <div className="Home">
@@ -52,8 +71,10 @@ class Home extends Component {
           />
         <div style={{display: "flex", justifyContent: "center"}}>
           {signOrSearch}
-
         </div>
+        {disclaimer}
+        {featureInfo}
+        {teamInfo}
       </div>
     );
   }
