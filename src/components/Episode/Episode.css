@@ -87,12 +87,34 @@
     border-radius: 5px;
     display: flex;
     cursor: pointer;
-    transition: background-color .3s ease-in-out;
+    transition: background-color .5s ease-in-out;
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
+#min{
+    color: #868895;
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    transition: color 0.5s ease-in-out;
+}
+
+#date{
+    color: #868895;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.5s ease-in-out;
+}
+
 .miniEpisodeWrapper:hover {
-    background-color: #282828;
+    background-color: #7E66D8;
+}
+
+.miniEpisodeWrapper:hover .miniEpisodeData #min,
+.miniEpisodeWrapper:hover .miniEpisodeData #date,
+.miniEpisodeWrapper:hover .episodesRight {
+    color: #FFFFFF;
 }
 
 #moreEp{
@@ -119,6 +141,7 @@
     height: 50px;
     margin: 0px 24px 0px 24px;
     border: none;
+    cursor: pointer;
 }
 
 button:active{
@@ -183,19 +206,6 @@ button img {
     box-shadow: -1000px 0 0 990px #7E66D8;
 }
 
-#min{
-    color: rgb(134, 136, 149);
-    font-size: 16px;
-    font-weight: 600;
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
-
-#date{
-    color: rgb(134, 136, 149);
-    font-size: 16px;
-    font-weight: 600;
-}
 
 /* MOBILE */
 @media only screen

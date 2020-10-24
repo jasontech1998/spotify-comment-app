@@ -7,9 +7,6 @@ import AddComment from '../AddComment/AddComment';
 import CommentList from '../CommentList/CommentList';
 import Rate from '../Rate/Rate';
 import SpotifyWebApi from 'spotify-web-api-js';
-
-import play from '../Images/play.png';
-import pause from '../Images/pause.png';
 import Head from '../../components/Head/head';
 
 const spotify = new SpotifyWebApi();
@@ -268,8 +265,11 @@ class Episode extends Component {
                 </div>
                 <div className="miniEpisodeData">
                   <span style={{color: "#FFFFFF"}}>{episode.name}</span>
-                  <span id="min" style={{color: "#868895"}}>{duration} minutes</span>
-                  <span id="date" style={{color: "#868895"}}>{episode.release_date}</span>
+                  <span id="min">{duration} minutes</span>
+                  <span id="date">{episode.release_date}</span>
+                </div>
+                <div className="episodesRight">
+                  <i className="fas fa-chevron-right"></i>
                 </div>
               </div>
             )

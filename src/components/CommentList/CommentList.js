@@ -92,47 +92,69 @@ class CommentList extends Component {
     }
   
     render() {
-        //Display Firebase data in cards
+        // if no comments yet, display this message
         let commentList = (
-            <Auxiliary>
-                {this.state.comments.map((comments, index) => {
-                    let commentTime = this.millisecondsToMinutesConverter(comments.time);
-                    let tempDaysAgo = new Date().getTime() - new Date(comments.date).getTime();
-                    let days = Math.floor(tempDaysAgo / (1000 * 3600 * 24));
-                    let daysAgo = <span id="darkerColor">{days} days ago</span>
-                    // if 1 day ago
-                    if (days === 1){
-                        daysAgo = <span id="darkerColor">{days} day ago</span>
-                    }
-                    // if 0 day ago
-                    if (days === 0) {
-                        daysAgo = <span id="darkerColor">Today</span>
-                    }
-                    return (
-                        <div
-                            onClick={() => this.props.onClick(comments.time)} 
-                            className="singleComment" key= {comments + index} id={comments.episodeId}>
-                            <div className="commentHeadingWrapper">
-                                <div className="nameTimeWrapper">
-                                    <span id="commenter">{comments.userName} </span>
-                                    <span id="at"> at </span>
-                                    <span id="commentTime">{commentTime}</span>
+            <div 
+                onClick={() => this.props.onClick(0)} 
+                className="singleComment">
+                <div className="commentHeadingWrapper">
+                    <div className="nameTimeWrapper">
+                        <span id="commenter">PodSpot</span>
+                        <span id="at"> at </span>
+                        <span id="commentTime">0:00</span>
+                    </div>
+                    <span id="darkerColor">Now</span>
+                </div>
+                <div id="commenter">
+                    <span>Be the first to comment!</span>
+                </div>
+            </div>
+        )
+        // else if there are comments, display comments
+        if (this.state.comments.length > 0) {
+            //Display Firebase data in cards
+            commentList = (
+                <Auxiliary>
+                    {this.state.comments.map((comments, index) => {
+                        let commentTime = this.millisecondsToMinutesConverter(comments.time);
+                        let tempDaysAgo = new Date().getTime() - new Date(comments.date).getTime();
+                        let days = Math.floor(tempDaysAgo / (1000 * 3600 * 24));
+                        let daysAgo = <span id="darkerColor">{days} days ago</span>
+                        // if 1 day ago
+                        if (days === 1){
+                            daysAgo = <span id="darkerColor">{days} day ago</span>
+                        }
+                        // if 0 day ago
+                        if (days === 0) {
+                            daysAgo = <span id="darkerColor">Today</span>
+                        }
+                        return (
+                            <div
+                                onClick={() => this.props.onClick(comments.time)} 
+                                className="singleComment" key= {comments + index} id={comments.episodeId}>
+                                <div className="commentHeadingWrapper">
+                                    <div className="nameTimeWrapper">
+                                        <span id="commenter">{comments.userName} </span>
+                                        <span id="at"> at </span>
+                                        <span id="commentTime">{commentTime}</span>
+                                    </div>
+                                    {daysAgo}
                                 </div>
-                                {daysAgo}
-                            </div>
-                            <div id="commenter">
-                                <span>{comments.comment}</span>
-                            </div>
-                        </div>  
-                    );
-                })}
-            </Auxiliary>
+                                <div id="commenter">
+                                    <span>{comments.comment}</span>
+                                </div>
+                            </div>  
+                        );
+                    })}
+                </Auxiliary>
+            );
+        }
+        
+        return (
+            <div className="CommentList">
+                {commentList}
+            </div>
         );
-    return (
-        <div className="CommentList">
-            {commentList}
-        </div>
-    );
   }
 }
 

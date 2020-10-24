@@ -99,6 +99,9 @@ class EpisodesList extends Component {
                   <div className="episodeDate">
                     <span className="episodeMinutes" style={{fontSize: "16px"}}>{episode.release_date}</span>
                   </div>
+                  <div className="episodesRight">
+                    <i className="fas fa-chevron-right"></i>
+                  </div>
                 </div>
               </div>
             )
