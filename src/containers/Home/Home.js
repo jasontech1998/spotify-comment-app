@@ -44,7 +44,7 @@ class Home extends Component {
         <Team />
       )
       featureInfo = (
-        <Featured/>
+        <Featured token={this.props.token}/>
       )
       disclaimer = null;
     }

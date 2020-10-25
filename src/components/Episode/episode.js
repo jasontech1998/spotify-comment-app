@@ -240,12 +240,19 @@ class Episode extends Component {
 
 
   render() {
+    let publisherName = null;
     let userName = null;
     let userId = null;
     let showEpisodesList = null;
     let accountType = null;
     const episode = this.props.data;
-    
+    // get publisher name from selectedShow or featureEpisode
+    if (this.props.location.state.selectedShow) {
+      publisherName = this.props.location.state.selectedShow.publisher
+    }
+    else if (this.props.location.state.featureEpisode) {
+      publisherName = this.props.location.state.featureEpisode.show.publisher;
+    }
     // create mini episodesList
     if (this.props.location.state.episodesResult && this.state.deviceId) {
       const episodes = this.props.location.state.episodesResult;
@@ -366,7 +373,7 @@ class Episode extends Component {
                   <span 
                   style={{marginBottom: "30px"}}
                   className="subTitleText1">
-                  Hosted by {this.props.location.state.selectedShow.publisher}</span>
+                  Hosted by {publisherName}</span>
                 </div>
                 <Rate episodeId={this.props.data.id} userId={userId}/>
               </div>

@@ -13,6 +13,13 @@ class EpisodesList extends Component {
   state = {
     episodeData: null
   }
+  // this triggers if user clicked on one of the featured episodes
+  componentDidMount = () => {
+    if (this.props.location.state.featureEpisode) {
+      let episode = this.props.location.state.featureEpisode;
+      this.setState({episodeData: episode})
+    }
+  }
 
   onClickEpisodeHandler = (id) => {
     spotify.getEpisode(id)
@@ -37,11 +44,19 @@ class EpisodesList extends Component {
   }
 
   render () {
+    let headTitle = null;
     let showEpisodes = null;
     let showDisplay = null;
     let episodesTitle = "Episodes";
     if (this.props.location.state.episodesResult) {
-      const showData = this.props.location.state.selectedShow;
+      let showData = null;
+      if (this.props.location.state.selectedShow) {
+        showData = this.props.location.state.selectedShow;
+      }
+      else if (this.props.location.state.featureEpisode) {
+        showData = this.props.location.state.featureEpisode
+      }
+      headTitle = showData.name
       showDisplay = (
         <Auxiliary>
           <div className="imageWrapper">
@@ -124,7 +139,7 @@ class EpisodesList extends Component {
 
     return (
       <div>
-        <Head title={this.props.location.state.selectedShow.name}/>
+        <Head title={headTitle}/>
         <Navbar token={this.props.location.state.token} />
         <div className="episodesListWrapper">
           <div className="selectedShow">

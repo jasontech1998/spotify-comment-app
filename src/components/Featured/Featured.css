@@ -1,20 +1,34 @@
+.Featured {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    padding: 0 164px;
+    margin-top: 80px;
+}
 .featureHeading{
     text-align: center;
     display: block;
-    margin-top: 100px;
     font-family: 'Poppins', sans-serif;
-    color: white;
+    color: #FFFFFF;
     background: none;
     border: none;
-}
-
-.featureHeading:hover{
-    color: #7E66D8;
+    transition: color 0.2s ease-in-out;
 }
 
 #arrow{
     color: #868895;
+    cursor: pointer;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
+
+.teamTitle:hover .featureHeading,
+.teamTitle:hover #arrow {
+    color: #7E66D8;
+}
+
+
 
 .featuredEp{
     background-color: #363943;
@@ -26,9 +40,16 @@
 }
 
 .featureWrapper{
-    padding-bottom: 50px;
-    width: 60%;
-    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(1, auto); 
+    gap: 24px;
+    max-height: 0;
+    overflow: hidden;
+    -moz-transition: max-height .5s ease;
+    -ms-transition: max-height .5s ease;
+    -o-transition: max-height .5s ease;
+    -webkit-transition: max-height .5s ease;
+    transition: max-height .5s ease;
 }
 
 /* MOBILE */

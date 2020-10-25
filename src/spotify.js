@@ -3,10 +3,10 @@
 export const authEndpoint = "https://accounts.spotify.com/authorize/";
 
 //If deployed, redirect here
-const redirectUri = "https://podspot-ede01.web.app/"
+// const redirectUri = "https://podspot-ede01.web.app/"
 
 //If local, redirect here
-// const redirectUri = "http://localhost:3000/"
+const redirectUri = "http://localhost:3000/"
 
 const client_id = process.env.REACT_APP_SPOTIFY_ID; // Your client id
 

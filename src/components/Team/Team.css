@@ -1,26 +1,54 @@
 .Team{
+    display: flex;
+    flex-direction: column;
     font-family: 'Inter', sans-serif;
+    margin-top: 64px;
+}
+
+.teamTitle {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    margin: 0 auto 30px;
+    cursor: pointer;
 }
 
 .teamHeading{
     text-align: center;
-    display: block;
     margin-top: 20px;
     font-family: 'Poppins', sans-serif;
-    color: white;
+    color: #FFFFFF;
     background: none;
     border: none;
+    transition: color 0.2s ease-in-out;
 }
 
-.teamHeading:hover{
+#arrow2{
+    color: #868895;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.teamTitle:hover .teamHeading,
+.teamTitle:hover #arrow2 {
     color: #7E66D8;
 }
 
-.teamWrapper{
+.teamWrapper {
     display: flex;
     justify-content: center;
     margin-bottom: 60px;
+    max-height: 0;
+    overflow: hidden;
+    -moz-transition: max-height .5s ease;
+    -ms-transition: max-height .5s ease;
+    -o-transition: max-height .5s ease;
+    -webkit-transition: max-height .5s ease;
+    transition: max-height .5s ease;
 }
+
 
 .member{
     background-color: #363943;
@@ -52,9 +80,7 @@
     color: #7E66D8;
 }
 
-#arrow{
-    color: #868895;
-}
+
 
 /* MOBILE */
 @media only screen
