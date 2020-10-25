@@ -1,10 +1,10 @@
-.Team{
+.HowItWorks{
     display: flex;
     flex-direction: column;
     font-family: 'Inter', sans-serif;
 }
 
-.teamTitle {
+.HowItWorksTitle {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-.teamHeading{
+.HowItWorksHeading{
     text-align: center;
     font-family: 'Poppins', sans-serif;
     color: #FFFFFF;
@@ -22,22 +22,21 @@
     transition: color 0.2s ease-in-out;
 }
 
-#arrow2{
+#arrow3{
     color: #868895;
     -moz-transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 
-.teamTitle:hover .teamHeading,
-.teamTitle:hover #arrow2 {
+.HowItWorksTitle:hover .HowItWorksHeading,
+.HowItWorksTitle:hover #arrow3 {
     color: #7E66D8;
 }
 
-.teamWrapper {
+.HowItWorksWrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 60px;
     max-height: 0;
     overflow: hidden;
     -moz-transition: max-height .5s ease;
@@ -47,43 +46,11 @@
     transition: max-height .5s ease;
 }
 
-
-.member{
+.HowItWorksContent{
     background-color: #363943;
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     border-radius: 8px;
-    margin: 15px;
+    margin: 15px 15px 60px 15px;
     padding: 20px;
     text-align: center;
-}
-
-#profilePic{
-    width: 180px;
-    height: 180px;
-    margin-bottom: 20px;
-}
-
-#memberName{
-    display: block;
-}
-
-#memberTitle{
-    display: block;
-    color: #868895;
-    padding-bottom: 25px;
-}
-
-#memberLink{
-    display: block;
-    color: #7E66D8;
-}
-
-
-
-/* MOBILE */
-@media only screen
-  and (max-device-width: 600px) {
-    .teamWrapper{
-        display: block;
-    }
 }

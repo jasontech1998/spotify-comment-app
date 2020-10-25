@@ -126,6 +126,14 @@ class Featured extends Component {
                 </Auxiliary>
             )
         }
+        let showFeaturesWrapped = null;
+        if (showFeatures !== null) {
+            showFeaturesWrapped = (
+                <div className="showFeaturesWrapped">
+                    {showFeatures}
+                </div>
+            );
+        }
         return (
         <div className="Featured">
             <div className="teamTitle" onClick={this.clickMemberHandler}>
@@ -133,7 +141,7 @@ class Featured extends Component {
                 <i className="fas fa-chevron-down" id="arrow" onClick={this.clickMemberHandler}></i>
             </div>
             <div className="featureWrapper">
-                {showFeatures}
+                {showFeaturesWrapped}
             </div>
         </div>
         );

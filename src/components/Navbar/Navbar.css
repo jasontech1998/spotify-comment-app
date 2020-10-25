@@ -40,7 +40,8 @@
    }
   .Navbar{
      display: block;
+     justify-content: center;
      margin-bottom: 0px;
-     padding-bottom: 0px;
+     padding: 20px 0px 0px 0px;
   }
 }

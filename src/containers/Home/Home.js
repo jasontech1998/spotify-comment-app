@@ -6,6 +6,7 @@ import Search from '../../components/Search/Search';
 import Head from '../../components/Head/head';
 import Team from '../../components/Team/Team';
 import Featured from '../../components/Featured/Featured';
+import HowItWorks from '../../components/HowItWorks/HowItWorks';
 
 import Lottie from 'react-lottie';
 import animationData from '../../components/Images/audiowave';
@@ -30,6 +31,7 @@ class Home extends Component {
     // if token is not null, render search bar
     let teamInfo= null;
     let featureInfo = null;
+    let howInfo = null;
     let disclaimer = (
       <div id="disclaimer">
         <span id="disclaimNote">Disclaimer: Spotify's Web Playback SDK does not support mobile devices and Safari.</span>
@@ -45,6 +47,9 @@ class Home extends Component {
       )
       featureInfo = (
         <Featured token={this.props.token}/>
+      )
+      howInfo = (
+        <HowItWorks />
       )
       disclaimer = null;
     }
@@ -73,8 +78,11 @@ class Home extends Component {
           {signOrSearch}
         </div>
         {disclaimer}
-        {featureInfo}
-        {teamInfo}
+        <div className="extraInfoWrapper">
+          {featureInfo}
+          {/* {howInfo} */}
+          {teamInfo}
+        </div>
       </div>
     );
   }
