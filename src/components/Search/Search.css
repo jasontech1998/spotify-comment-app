@@ -89,4 +89,7 @@ input:-webkit-autofill::first-line {
       width: 80%;
       margin: auto;
     }
+    form.search {
+      margin-left: 10px;
+    }
   }

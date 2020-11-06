@@ -21,7 +21,7 @@ class Team extends Component {
     updateMaxHeight = () => {
         if (this.state.clicked) {
             let teamWrapper = document.querySelector(".teamWrapper");
-            teamWrapper.style.maxHeight = "400px";
+            teamWrapper.style.maxHeight = "1500px";
             let chevron = document.getElementById("arrow2");
             chevron.style.transform = "rotate(180deg)";
         } else {

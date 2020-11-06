@@ -15,6 +15,7 @@
   border-radius: 8px;
   transition: background-color 0.5s ease-in-out;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .episodeListGrid {
@@ -174,8 +175,6 @@
       margin-top: 10px;
       margin-left: 10px;
       margin-right: 10px;
-      padding-left: 35px;
-      padding-right: 35px;
     }
     .aboutDescriptionWrapper {
       margin-top: 10px;
@@ -186,6 +185,7 @@
     }
     .episodeWrapper {
       padding: 12px;
+      width: 100%;
     }
     .titleDateWrapper {
       display: block;

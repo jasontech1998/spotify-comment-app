@@ -271,7 +271,7 @@ class Episode extends Component {
                     src={episode.images[0].url} style={{width: "100px", height: "100px"}}/>
                 </div>
                 <div className="miniEpisodeData">
-                  <span style={{color: "#FFFFFF"}}>{episode.name}</span>
+                  <span id="miniEpName" style={{color: "#FFFFFF"}}>{episode.name}</span>
                   <span id="min">{duration} minutes</span>
                   <span id="date">{episode.release_date}</span>
                 </div>
@@ -330,7 +330,7 @@ class Episode extends Component {
     let playerCard = (
       <div className="playerContainer">
           <div className="episodeNameDateWrapper">
-            <h3 style={{marginBottom: "0px"}}>{episode.name}</h3>
+            <h3 style={{marginBottom: "0px"}} id="epName">{episode.name}</h3>
             <div>
               <span id="epDate" style={{color: "#868895"}}>{episode.release_date}</span>
             </div>
@@ -362,7 +362,7 @@ class Episode extends Component {
       );
     }
     return (
-      <div className="Episode" style={{marginTop: "-80px", marginLeft: "-19px", marginRight: "-19px"}}>
+      <div className="Episode">
         <Head title={this.state.trackName}/>
         <div className="displayEpisodeData">
           <div className="episodeDataContainer">

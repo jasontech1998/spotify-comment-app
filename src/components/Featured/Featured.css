@@ -52,10 +52,18 @@
     transition: max-height .5s ease;
 }
 
+.showFeaturesWrapped{
+    margin-bottom: 60px;
+}
+
 /* MOBILE */
 @media only screen
   and (max-device-width: 600px) {
+    .Featured {
+        padding: 0px;
+    }
     .featureWrapper{
         width: 100%;
+        margin: 5px;
     }
 }
